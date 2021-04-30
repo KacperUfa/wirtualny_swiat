@@ -1,8 +1,5 @@
-
-
 #ifndef WIRTUALNY_SWIAT_SWIAT_H
 #define WIRTUALNY_SWIAT_SWIAT_H
-
 #include "Organizm.h"
 
 class Swiat {
