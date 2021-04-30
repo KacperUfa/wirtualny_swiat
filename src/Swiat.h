@@ -1,13 +1,17 @@
 #ifndef WIRTUALNY_SWIAT_SWIAT_H
 #define WIRTUALNY_SWIAT_SWIAT_H
 #include "Organizm.h"
+#include "Position.h"
+class Organizm;
 
 class Swiat {
 private:
-    Organizm *organizms;
+    Organizm *organisms;
+    Position mapSize;
 public:
-    virtual void makeTurn();
-    virtual void drawWorld();
+    Swiat(Position mapSize, Organizm *organisms);
+    void makeTurn();
+    void drawWorld();
 };
 
 

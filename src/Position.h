@@ -10,11 +10,13 @@ class Position {
     int x;
     int y;
 public:
+    Position(int x, int y);
     void SetX(int x);
     void SetY(int y);
     int GetX();
     int GetY();
     void Move(int x, int y);
+    ~Position();
 };
 
 

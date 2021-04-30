@@ -1,6 +1,6 @@
 #ifndef WIRTUALNY_SWIAT_ORGANIZM_H
 #define WIRTUALNY_SWIAT_ORGANIZM_H
-//#include "Swiat.h"
+#include "Swiat.h"
 #include "Position.h"
 class Organizm {
 protected:
