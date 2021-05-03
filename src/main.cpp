@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Organizm.h"
-#include "Zwierze.h"
+#include "Organism.h"
+#include "Animal.h"
 #include "Position.h"
 
 int main(){

@@ -1,9 +1,9 @@
-#include "Zwierze.h"
+#include "Animal.h"
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
 
-void Zwierze::action() {
+void Animal::action() {
     srand(time(NULL));
     int x=(rand()%3)-1;
     int y= (rand()%3)-1;
