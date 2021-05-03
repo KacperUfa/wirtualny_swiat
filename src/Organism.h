@@ -1,24 +1,25 @@
-//
-// Created by kacpe on 03.05.2021.
-//
-
 #ifndef WIRTUALNY_SWIAT_ORGANISM_H
 #define WIRTUALNY_SWIAT_ORGANISM_H
 
 #include "World.h"
 #include "Position.h"
 
-
 class Organism {
 protected:
-    const int power;
-    const int initiative;
+    int power;
+    int initiative;
     Position position;
     World *world;
 public:
     Organism(int power, int initiative, int x, int y, World *world);
-    virtual void action();
-    virtual void collision();
+    int getPower();
+    int getInitiative();
+    World* getWorld();
+    void setPower(int power);
+    void setInitiative(int initiative);
+    void setWorld(World* world);
+    virtual void action()=0;
+    virtual void collision()=0;
     virtual void draw();
     virtual ~Organism();
 

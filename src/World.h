@@ -1,19 +1,17 @@
-//
-// Created by kacpe on 03.05.2021.
-//
-
 #ifndef WIRTUALNY_SWIAT_WORLD_H
 #define WIRTUALNY_SWIAT_WORLD_H
+#include <vector>
 #include "Position.h"
 class Organism;
 
-
 class World {
 private:
-    Organism *organisms;
+    std::vector <Organism> organisms;
+    //Organism *organisms;
     Position mapSize;
+    std::vector<std::vector <Organism*>> map;
 public:
-    World(Position mapSize, Organism *organisms);
+    World(int x, int y, std::vector <Organism> organisms);
     void makeTurn();
     void drawWorld();
     ~World();

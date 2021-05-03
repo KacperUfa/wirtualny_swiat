@@ -1,7 +1,3 @@
-//
-// Created by kacpe on 03.05.2021.
-//
-
 #ifndef WIRTUALNY_SWIAT_ANIMAL_H
 #define WIRTUALNY_SWIAT_ANIMAL_H
 #include "Organism.h"
