@@ -5,31 +5,51 @@ position(x, y), world(world) {
 
 }
 
-int Organism::getPower() {
+int Organism::GetPositionX() {
+    return this->position.GetX();
+}
+
+int Organism::GetPositionY() {
+    return this->position.GetY();
+}
+
+void Organism::SetPositionX(int x) {
+    this->position.SetX(x);
+}
+
+void Organism::SetPositionY(int y) {
+    this->position.SetX(y);
+}
+
+void Organism::Move(int x, int y) {
+    this->position.Move(x,y);
+}
+
+int Organism::GetPower() {
     return this->power;
 }
 
-int Organism::getInitiative() {
+int Organism::GetInitiative() {
     return this->initiative;
 }
 
-World* Organism::getWorld() {
+World* Organism::GetWorld() {
     return this->world;
 }
 
-void Organism::setPower(int power){
+void Organism::SetPower(int power){
     this->power=power;
 }
 
-void Organism::setInitiative(int initiative){
+void Organism::SetInitiative(int initiative){
     this->initiative=initiative;
 }
 
-void Organism::setWorld(World* world){
+void Organism::SetWorld(World* world){
     this->world=world;
 }
 
-void Organism::draw() {
+void Organism::Draw() {
     printf(".");
 }
 

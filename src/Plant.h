@@ -3,14 +3,15 @@
 
 #include "Organism.h"
 
+
 class Plant: public Organism {
 private:
 
 public:
     Plant(int power, int x, int y, World *world);
-    void collision() override;
-    void draw() override;
-    void action() override;
+    void Collision();
+    void Draw();
+    void Action();
     ~Plant();
 };
 

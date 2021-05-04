@@ -1,7 +1,7 @@
 #include "Position.h"
 #include <iostream>
 Position::Position(int x, int y) : x(x), y(y){
-    std::cout<<"position X:"<<this->x<<" Y: "<<this->y<<std::endl;
+    //std::cout<<"position X:"<<this->x<<" Y: "<<this->y<<std::endl;
 }
 
 void Position::SetX(int x){
