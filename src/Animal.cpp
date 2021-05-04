@@ -11,12 +11,14 @@ void Animal::Action() {
     srand(time(NULL));
     int x=(rand()%3)-1;
     int y= (rand()%3)-1;
+    Position animalPosition = this->position;
     if(y==0 && x==0){
         this->position.Move(x,-1);
     }
     else{
         this->position.Move(x,y);
     }
+    this->world->Erase(animalPosition);
 }
 
 void Animal::Draw() {

@@ -23,6 +23,7 @@ void World::DrawWorld() {
         }
         printf("\n");
     }
+    printf("\n");
 }
 
 void World::MakeTurn() {
@@ -46,4 +47,8 @@ void World::PlaceOrganisms() {
         int y=(*iter)->GetPositionY();
         this->map[x][y]=*iter;
     }
+}
+
+void World::Erase(Position position) {
+    map[position.GetX()][position.GetY()]= nullptr;
 }

@@ -15,7 +15,9 @@ public:
     void SetY(int y);
     int GetX();
     int GetY();
+    Position* GetPosition();
     void Move(int x, int y);
+    void Erase();
     ~Position();
 };
 

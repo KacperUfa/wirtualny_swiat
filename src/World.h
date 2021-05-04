@@ -18,6 +18,7 @@ public:
     void PlaceOrganisms();
     void SetWorld();
     void DrawWorld();
+    void Erase(Position position);
     ~World();
 };
 
