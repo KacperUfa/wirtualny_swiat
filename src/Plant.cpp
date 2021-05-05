@@ -37,11 +37,16 @@ void Plant::Action() {
         }
 
         Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
+        if(tmpOrg== nullptr){
 
+            this->position.Move(x,y);
+
+        }
 
     }
 }
 
+void Plant::newPlant(Position *position) {}
 
 void Plant::Collision(Organism* org, int x, int y, Position position) {
 

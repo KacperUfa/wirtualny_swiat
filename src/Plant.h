@@ -12,6 +12,7 @@ public:
     void Collision(Organism* org, int x, int y, Position position);
     virtual void Draw ()=0;
     void Action();
+    virtual void newPlant(Position* position);
     Position* Breed(Organism* organismTmp);
     ~Plant();
 };
