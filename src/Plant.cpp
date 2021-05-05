@@ -47,6 +47,10 @@ void Plant::Collision(Organism* org, int x, int y, Position position) {
 
 }
 
+Position* Plant::Breed(Organism *organismTmp) {
+    return nullptr;
+}
+
 Plant::~Plant() noexcept {
 
 }
