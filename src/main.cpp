@@ -9,6 +9,7 @@
 #include "Position.h"
 #include "Wolf.h"
 #include "Sheep.h"
+#include "Fox.h"
 
 int main(){
     srand(time(NULL));
@@ -32,6 +33,10 @@ int main(){
 
     std::vector <Organism*> organisms;
 
+    Fox *fox1 = new Fox(2,3, nullptr);
+    Fox *fox2 = new Fox(3,2, nullptr);
+    Fox *fox3 = new Fox(7,3, nullptr);
+    Fox *fox4 = new Fox(3,7, nullptr);
     Wolf *wolf1 = new Wolf(1,5, nullptr);
     Wolf *wolf2 = new Wolf(6,5, nullptr);
     Wolf *wolf3 = new Wolf(4,3, nullptr);
@@ -40,6 +45,10 @@ int main(){
     Sheep *sheep2 = new Sheep(7,2, nullptr);
     Sheep *sheep3 = new Sheep(9,7, nullptr);
     Sheep *sheep4 = new Sheep(2,5, nullptr);
+    organisms.push_back(fox1);
+    organisms.push_back(fox2);
+    organisms.push_back(fox3);
+    organisms.push_back(fox4);
     organisms.push_back(wolf1);
     organisms.push_back(wolf2);
     organisms.push_back(wolf3);
