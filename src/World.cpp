@@ -28,9 +28,8 @@ void World::DrawWorld() {
 }
 
 void World::MakeTurn() {
-    auto it = this->organisms.end();
     int i=0;
-    for(auto iter = this->organisms.begin(); iter != this->organisms.end(); ++iter){
+    for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
         std::cout<<i<<" ";
         (*iter)->Action();
         //printf("%d %d\n",(*iter)->GetPositionX(), (*iter)->GetPositionY());
@@ -100,7 +99,7 @@ void World::addOrganism(Organism *organismTmp) {
     this->organismsTMP.push_back(organismTmp);
     int x=organismTmp->GetPositionX();
     int y=organismTmp->GetPositionY();
-   // this->map[x][y]=organismTmp;
+    this->map[x][y]=organismTmp;
 }
 
 std::vector<std::vector <Organism*>> World::GetMap(){

@@ -78,8 +78,8 @@ void Animal::newAnimal(Position *position) {}
 Position* Animal::Breed(Organism *organismTmp) {
     for(int i=-1; i<2;i++){
         for(int j=-1;j<2;j++){
-            if(this->world->GetOrganism(this->GetPositionX()+i,this->GetPositionY()+j)== nullptr){
-                Position* newPosition = new Position(i,j);
+            if(this->world->GetOrganism(organismTmp->GetPositionX()+i,organismTmp->GetPositionY()+j)== nullptr){
+                Position* newPosition = new Position(organismTmp->GetPositionX()+i,organismTmp->GetPositionY()+j);
                 return newPosition;
             };
         }

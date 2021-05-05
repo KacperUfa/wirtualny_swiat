@@ -21,10 +21,6 @@ void Position::Move(int x, int y){
     this->y+=y;
 }
 
-Position* Position::GetPosition() {
-    return this;
-}
-
 Position::~Position() {
 
 }
