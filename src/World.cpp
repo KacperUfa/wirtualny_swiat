@@ -29,9 +29,12 @@ void World::MakeTurn() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
         if((*iter)->GetState()){
             (*iter)->Action();
-            int x=(*iter)->GetPositionX();
-            int y=(*iter)->GetPositionY();
-            this->map[x][y]=*iter;
+            if((*iter)->GetState()){
+                int x=(*iter)->GetPositionX();
+                int y=(*iter)->GetPositionY();
+                this->map[x][y]=*iter;
+            }
+
         }
 
     }
