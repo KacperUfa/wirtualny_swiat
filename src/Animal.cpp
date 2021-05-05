@@ -61,7 +61,8 @@ void Animal::Action() {
                     this->position.Move(x,y);
                 }
                 else{
-                    tmpOrg->GetWorld()->addToKill(tmpOrg);
+                    this->GetWorld()->addToKill(this);
+                    this->Kill();
                     //this->world->removeOrganism2(this);
                 }
                 this->world->Erase(animalPosition);
