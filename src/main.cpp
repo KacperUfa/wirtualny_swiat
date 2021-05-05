@@ -47,6 +47,9 @@ int main(){
         std::cin>>x;
         if(x==1) break;
         world1->MakeTurn();
+        world1->addOrganisms();
+        //world1->PlaceOrganisms();
+        //world1->remOrganisms();
 
     }
     return 0;

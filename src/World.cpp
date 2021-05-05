@@ -1,4 +1,5 @@
 #include "World.h"
+#include <iostream>
 
 World::World(int x, int y, std::vector <Organism*> organisms): mapSize(x,y){
     this->organisms=organisms;
@@ -27,17 +28,48 @@ void World::DrawWorld() {
 }
 
 void World::MakeTurn() {
-    for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
+    auto it = this->organisms.end();
+    int i=0;
+    for(auto iter = this->organisms.begin(); iter != this->organisms.end(); ++iter){
+        std::cout<<i<<" ";
         (*iter)->Action();
-        printf("%d %d\n",(*iter)->GetPositionX(), (*iter)->GetPositionY());
+        //printf("%d %d\n",(*iter)->GetPositionX(), (*iter)->GetPositionY());
         //
+        std::cout<<"pol ";
         int x=(*iter)->GetPositionX();
+        std::cout<<"git? ";
         int y=(*iter)->GetPositionY();
         this->map[x][y]=*iter;
+        std::cout<<"git\n";
+        i++;
         //
     }
     //this->PlaceOrganisms();
     this->DrawWorld();
+    //this->addOrganisms();
+    //this->PlaceOrganisms();
+    //this->remOrganisms();
+    //std::cout<<this->organisms.size()<<"\n";
+
+}
+
+void World::addOrganisms() {
+    /*if(organismsTMP.size()>0){
+        for(auto iter = this->organismsTMP.begin(); iter != this->organismsTMP.end(); iter++){
+            this->organisms.push_back(*iter);
+        }
+    }*/
+    while (this->organismsTMP.size()>0){
+        this->organisms.push_back(this->organismsTMP.front());
+        this->organismsTMP.pop_back();
+    }
+
+}
+
+void World::remOrganisms() {
+    while (organismsTMP.size()>0){
+        this->organismsTMP.pop_back();
+    }
 }
 
 void World::SetWorld() {
@@ -51,7 +83,7 @@ Position World::GetMapSize() {
 }
 
 void World::removeOrganism(Organism* organismTmp) {
-    auto newEnd = remove(this->organisms.begin(),this->organisms.end(), organismTmp);
+    auto newEnd = std::remove(this->organisms.begin(),this->organisms.end(), organismTmp);
     this->organisms.erase(newEnd, this->organisms.end());
 }
 
@@ -65,7 +97,10 @@ void World::PlaceOrganisms() {
 }
 
 void World::addOrganism(Organism *organismTmp) {
-    this->organisms.push_back(organismTmp);
+    this->organismsTMP.push_back(organismTmp);
+    int x=organismTmp->GetPositionX();
+    int y=organismTmp->GetPositionY();
+   // this->map[x][y]=organismTmp;
 }
 
 std::vector<std::vector <Organism*>> World::GetMap(){

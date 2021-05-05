@@ -9,6 +9,7 @@ class Organism;
 class World {
 private:
     std::vector <Organism*> organisms;
+    std::vector <Organism*> organismsTMP;
     //Organism *organisms;
     Position mapSize;
     std::vector<std::vector <Organism*>> map;
@@ -20,6 +21,8 @@ public:
     void DrawWorld();
     void addOrganism(Organism* organismTmp);
     void removeOrganism(Organism* organismTmp);
+    void addOrganisms();
+    void remOrganisms();
     std::vector<std::vector <Organism*>> GetMap();
     Organism* GetOrganism(int x, int y);
     Position GetMapSize();
