@@ -44,9 +44,6 @@ void Animal::Action() {
         else{
             this->Collision(tmpOrg, x,y,animalPosition);
         }
-
-
-
 }
 
 bool Animal::checkSpecies(Organism* organismTmp) {
