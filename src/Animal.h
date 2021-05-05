@@ -12,7 +12,7 @@ public:
     virtual bool checkSpecies(Organism* organismTmp);
     Position* Breed(Organism* organismTmp);
     virtual void newAnimal(Position* position);
-    void Collision ();
+    void Collision (Organism* org, int x, int y, Position position);
     void Action ();
 
     ~Animal();

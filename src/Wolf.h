@@ -10,6 +10,7 @@ public:
     void Draw();
     void newAnimal(Position* positionXY) override;
     bool checkSpecies(Organism* organismTmp) override;
+    //void Collision(Organism* org, int x, int y, Position position);
     ~Wolf();
 };
 

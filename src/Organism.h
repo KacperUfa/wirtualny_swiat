@@ -28,7 +28,7 @@ public:
     void SetPositionY(int y);
     void Move(int x,int y);
     virtual void Action()=0;
-    virtual void Collision()=0;
+    virtual void Collision(Organism* org, int x, int y, Position position)=0;
     virtual void Draw();
     virtual ~Organism();
 
