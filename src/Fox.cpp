@@ -22,7 +22,6 @@ void Fox::newAnimal(Position *positionXY) {
 
 void Fox::Action() {
     int x, y;
-    //srand(time(NULL));
     int actualX = this->position.GetX();
     int actualY = this->position.GetY();
     Position animalPosition = this->position;
@@ -47,19 +46,17 @@ void Fox::Action() {
 
     Organism *tmpOrg = this->world->GetOrganism(actualX + x, actualY + y);
 
-
     if (tmpOrg == nullptr) {
         this->position.Move(x, y);
         this->world->Erase(animalPosition);
     } else {
-        if (tmpOrg->GetPower() <= this->power) {
-            this->Collision(tmpOrg, x, y, animalPosition);
+        if(tmpOrg->GetPower()<=this->power) {
+            tmpOrg->Collision(this, x, y, animalPosition);
+            std::cout << "Lis walczy" << std::endl;
         } else{
-            std::cout << tmpOrg->GetPower() << std::endl;
+            std::cout << "LIS UCIEKŁ OD WALKI" << std::endl;
         }
     }
-
-
 }
 
 Fox::~Fox() noexcept {
