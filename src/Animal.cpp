@@ -9,7 +9,6 @@ Animal::Animal(int power, int initiative, int x, int y, World *world):Organism(p
 
 void Animal::Action() {
         int x, y;
-        //srand(time(NULL));
         int actualX=this->position.GetX();
         int actualY=this->position.GetY();
         Position animalPosition = this->position;
@@ -36,7 +35,6 @@ void Animal::Action() {
 
         Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
 
-
         if(tmpOrg== nullptr){
             this->position.Move(x,y);
             this->world->Erase(animalPosition);
@@ -44,9 +42,6 @@ void Animal::Action() {
         else{
             this->Collision(tmpOrg, x,y,animalPosition);
         }
-
-
-
 }
 
 bool Animal::checkSpecies(Organism* organismTmp) {
@@ -90,15 +85,12 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
         if(this->power>=tmpOrg->GetPower()){
             tmpOrg->Kill();
             tmpOrg->GetWorld()->addToKill(tmpOrg);
-            //this->world->removeOrganism2(tmpOrg);
-            //tmpOrg= nullptr;
             this->world->Erase(tmpOrg->GetPosition());
             this->position.Move(x,y);
         }
         else{
             this->GetWorld()->addToKill(this);
             this->Kill();
-            //this->world->removeOrganism2(this);
         }
         this->world->Erase(animalPosition);
         printf("WALKA\n");

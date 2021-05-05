@@ -2,6 +2,7 @@
 #include <ctime>
 #include "Organism.h"
 #include <vector>
+#include "Grass.h"
 #include "Plant.h"
 #include "Animal.h"
 #include "World.h"
@@ -30,6 +31,7 @@ int main(){
      */
 
     std::vector <Organism*> organisms;
+    /*
     Wolf *wolf1 = new Wolf(1,5, nullptr);
     Wolf *wolf2 = new Wolf(6,5, nullptr);
     Wolf *wolf3 = new Wolf(4,3, nullptr);
@@ -46,6 +48,9 @@ int main(){
     organisms.push_back(sheep2);
     organisms.push_back(sheep3);
     organisms.push_back(sheep4);
+     */
+    Grass *grass1 = new Grass(5,5, nullptr);
+    organisms.push_back(grass1);
     World *world1 = new World(x,y, organisms);
     world1->DrawWorld();
     while (true){
@@ -55,9 +60,6 @@ int main(){
         world1->MakeTurn();
         world1->addOrganisms();
         world1->removeOrganisms();
-        //world1->PlaceOrganisms();
-        //world1->remOrganisms();
-
     }
     return 0;
 }
