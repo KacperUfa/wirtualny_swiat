@@ -9,6 +9,7 @@ protected:
     int power;
     int initiative;
     Position position;
+    bool alive;
     World *world;
 public:
     Organism(int power, int initiative, int x, int y, World *world);
@@ -17,9 +18,12 @@ public:
     World* GetWorld();
     void SetPower(int power);
     void SetInitiative(int initiative);
+    void Kill();
     void SetWorld(World* world);
     int GetPositionX();
     int GetPositionY();
+    bool GetState();
+    Position GetPosition();
     void SetPositionX(int x);
     void SetPositionY(int y);
     void Move(int x,int y);

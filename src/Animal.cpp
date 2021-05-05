@@ -8,64 +8,69 @@ Animal::Animal(int power, int initiative, int x, int y, World *world):Organism(p
 }
 
 void Animal::Action() {
-    int x, y;
-    //srand(time(NULL));
-    int actualX=this->position.GetX();
-    int actualY=this->position.GetY();
-    Position animalPosition = this->position;
-    Position worldMap=this->world->GetMapSize();
+        int x, y;
+        //srand(time(NULL));
+        int actualX=this->position.GetX();
+        int actualY=this->position.GetY();
+        Position animalPosition = this->position;
+        Position worldMap=this->world->GetMapSize();
 
-    do{
-        x=(rand()%3)-1;
-        y=(rand()%3)-1;
+        do{
+            x=(rand()%3)-1;
+            y=(rand()%3)-1;
 
-    }while(x==0 && y ==0);
+        }while(x==0 && y ==0);
 
-    if(actualX==0 && x<0){
-        x=1;
-    }
-    else if(actualX== worldMap.GetX()-1 && x>0){
-        x=-1;
-    }
-    if(actualY==0 && y<0){
-        y=1;
-    }
-    else if(actualY== worldMap.GetY()-1 && y>0){
-        y=-1;
-    }
+        if(actualX==0 && x<0){
+            x=1;
+        }
+        else if(actualX== worldMap.GetX()-1 && x>0){
+            x=-1;
+        }
+        if(actualY==0 && y<0){
+            y=1;
+        }
+        else if(actualY== worldMap.GetY()-1 && y>0){
+            y=-1;
+        }
 
-    Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
+        Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
 
 
-    if(tmpOrg== nullptr){
-        this->position.Move(x,y);
-        this->world->Erase(animalPosition);
-    }
-    else{
-        if(this->checkSpecies(tmpOrg)){
-            //kopiulacja
-            Position* breedPosition=this->Breed(tmpOrg);
-            if(breedPosition!= nullptr){
-                newAnimal(breedPosition);
-            }
-            //
-            printf("KOPULACJA\n");
+        if(tmpOrg== nullptr){
+            this->position.Move(x,y);
+            this->world->Erase(animalPosition);
         }
         else{
-            //walka
-            if(this->power>=tmpOrg->GetPower()){
-                this->world->removeOrganism(tmpOrg);
-                //tmpOrg= nullptr;
-                this->position.Move(x,y);
+            if(this->checkSpecies(tmpOrg)){
+                //kopiulacja
+                Position* breedPosition=this->Breed(tmpOrg);
+                if(breedPosition!= nullptr){
+                    newAnimal(breedPosition);
+                }
+                printf("KOPULACJA\n");
             }
             else{
-                this->world->removeOrganism(this);
+                //walka
+                if(this->power>=tmpOrg->GetPower()){
+                    tmpOrg->Kill();
+                    tmpOrg->GetWorld()->addToKill(tmpOrg);
+                    //this->world->removeOrganism2(tmpOrg);
+                    //tmpOrg= nullptr;
+                    this->world->Erase(tmpOrg->GetPosition());
+                    this->position.Move(x,y);
+                }
+                else{
+                    tmpOrg->GetWorld()->addToKill(tmpOrg);
+                    //this->world->removeOrganism2(this);
+                }
+                this->world->Erase(animalPosition);
+                printf("WALKA\n");
             }
-            this->world->Erase(animalPosition);
-            printf("WALKA\n");
+
         }
 
-    }
+
 
 }
 

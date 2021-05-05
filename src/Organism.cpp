@@ -1,12 +1,20 @@
 #include "Organism.h"
 
 Organism::Organism(int power, int initiative, int x, int y, World *world) :power(power), initiative(initiative),
-position(x, y), world(world) {
+position(x, y), world(world), alive(true){
 
 }
 
 int Organism::GetPositionX() {
     return this->position.GetX();
+}
+
+Position Organism::GetPosition() {
+    return this->position;
+}
+
+bool Organism::GetState() {
+    return this->alive;
 }
 
 int Organism::GetPositionY() {
@@ -15,6 +23,9 @@ int Organism::GetPositionY() {
 
 void Organism::SetPositionX(int x) {
     this->position.SetX(x);
+}
+void Organism::Kill() {
+    this->alive=false;
 }
 
 void Organism::SetPositionY(int y) {

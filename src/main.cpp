@@ -54,6 +54,7 @@ int main(){
         if(x==1) break;
         world1->MakeTurn();
         world1->addOrganisms();
+        world1->removeOrganisms();
         //world1->PlaceOrganisms();
         //world1->remOrganisms();
 

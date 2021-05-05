@@ -3,8 +3,6 @@
 
 World::World(int x, int y, std::vector <Organism*> organisms): mapSize(x,y){
     this->organisms=organisms;
-    //std::vector <Organism*> organisms
-
     std::vector<std::vector <Organism*>> mapTMP(x,std::vector<Organism*>(y, nullptr));
     this->map=mapTMP;
     this->SetWorld();
@@ -29,30 +27,24 @@ void World::DrawWorld() {
 
 void World::MakeTurn() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
-        (*iter)->Action();
-        int x=(*iter)->GetPositionX();
-        int y=(*iter)->GetPositionY();
-        this->map[x][y]=*iter;
+        if((*iter)->GetState()){
+            (*iter)->Action();
+            int x=(*iter)->GetPositionX();
+            int y=(*iter)->GetPositionY();
+            this->map[x][y]=*iter;
+        }
+
     }
     this->DrawWorld();
+}
 
+void World::addToKill(Organism *organismTmp) {
+    this->organismToKill.push_back(organismTmp);
 }
 
 void World::addOrganisms() {
-    /*if(organismsTMP.size()>0){
-        for(auto iter = this->organismsTMP.begin(); iter != this->organismsTMP.end(); iter++){
-            this->organisms.push_back(*iter);
-        }
-    }*/
     while (this->organismsTMP.size()>0){
         this->organisms.push_back(this->organismsTMP.front());
-        this->organismsTMP.pop_back();
-    }
-
-}
-
-void World::remOrganisms() {
-    while (organismsTMP.size()>0){
         this->organismsTMP.pop_back();
     }
 }
@@ -70,6 +62,13 @@ Position World::GetMapSize() {
 void World::removeOrganism(Organism* organismTmp) {
     auto newEnd = std::remove(this->organisms.begin(),this->organisms.end(), organismTmp);
     this->organisms.erase(newEnd, this->organisms.end());
+}
+
+void World::removeOrganisms() {
+    for(auto iter = this->organismToKill.begin(); iter != this->organismToKill.end(); iter++){
+        removeOrganism(*iter);
+    }
+
 }
 
 void World::PlaceOrganisms() {

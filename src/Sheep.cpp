@@ -15,8 +15,8 @@ bool Sheep::checkSpecies(Organism *organismTmp) {
 void Sheep::newAnimal(Position* positionXY) {
     int x=positionXY->GetX();
     int y=positionXY->GetY();
-    Sheep *wolf4 = new Sheep(x,y, this->world);
-    this->world->addOrganism(wolf4);
+    Sheep *newAnimal = new Sheep(x,y, this->world);
+    this->world->addOrganism(newAnimal);
 }
 
 Sheep::~Sheep() noexcept {
