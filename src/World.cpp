@@ -28,27 +28,13 @@ void World::DrawWorld() {
 }
 
 void World::MakeTurn() {
-    int i=0;
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
-        //std::cout<<i<<" ";
         (*iter)->Action();
-        //printf("%d %d\n",(*iter)->GetPositionX(), (*iter)->GetPositionY());
-        //
-        //std::cout<<"pol ";
         int x=(*iter)->GetPositionX();
-        //std::cout<<"git? ";
         int y=(*iter)->GetPositionY();
         this->map[x][y]=*iter;
-        //std::cout<<"git\n";
-        //i++;
-        //
     }
-    //this->PlaceOrganisms();
     this->DrawWorld();
-    //this->addOrganisms();
-    //this->PlaceOrganisms();
-    //this->remOrganisms();
-    //std::cout<<this->organisms.size()<<"\n";
 
 }
 

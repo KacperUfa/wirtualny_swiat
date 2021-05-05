@@ -55,13 +55,13 @@ void Animal::Action() {
             //walka
             if(this->power>=tmpOrg->GetPower()){
                 this->world->removeOrganism(tmpOrg);
+                //tmpOrg= nullptr;
                 this->position.Move(x,y);
-                this->world->Erase(animalPosition);
             }
             else{
                 this->world->removeOrganism(this);
-                this->world->Erase(animalPosition);
             }
+            this->world->Erase(animalPosition);
             printf("WALKA\n");
         }
 

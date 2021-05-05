@@ -15,10 +15,8 @@ bool Wolf::checkSpecies(Organism *organismTmp) {
 void Wolf::newAnimal(Position* positionXY) {
     int x=positionXY->GetX();
     int y=positionXY->GetY();
-    //Wolf* wolfTmp=new Wolf(x,y, this->world);
     Wolf *wolf4 = new Wolf(x,y, this->world);
     this->world->addOrganism(wolf4);
-    //this->world->GetMap()[x][y]=wolf4;
 }
 
 Wolf::~Wolf() noexcept {
