@@ -9,7 +9,6 @@ Animal::Animal(int power, int initiative, int x, int y, World *world):Organism(p
 
 void Animal::Action() {
         int x, y;
-        //srand(time(NULL));
         int actualX=this->position.GetX();
         int actualY=this->position.GetY();
         Position animalPosition = this->position;
@@ -36,13 +35,13 @@ void Animal::Action() {
 
         Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
 
-
         if(tmpOrg== nullptr){
             this->position.Move(x,y);
             this->world->Erase(animalPosition);
         }
         else{
-            this->Collision(tmpOrg, x,y,animalPosition);
+            //this->Collision(tmpOrg, x,y,animalPosition);
+            tmpOrg->Collision(this, x,y,animalPosition);
         }
 }
 
@@ -74,9 +73,10 @@ Position* Animal::Breed(Organism *organismTmp) {
 }
 
 void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition ) {
-    if(this->checkSpecies(tmpOrg)){
+    if(tmpOrg->checkSpecies(this)){
+
         //kopiulacja
-        Position* breedPosition=this->Breed(tmpOrg);
+        Position* breedPosition=tmpOrg->Breed(this);
         if(breedPosition!= nullptr){
             newAnimal(breedPosition);
         }
@@ -84,20 +84,17 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
     }
     else{
         //walka
-        if(this->power>=tmpOrg->GetPower()){
-            tmpOrg->Kill();
-            tmpOrg->GetWorld()->addToKill(tmpOrg);
-            //this->world->removeOrganism2(tmpOrg);
-            //tmpOrg= nullptr;
-            this->world->Erase(tmpOrg->GetPosition());
-            this->position.Move(x,y);
+        if(tmpOrg->GetPower()>=this->power){
+            this->Kill();
+            this->GetWorld()->addToKill(this);
+            tmpOrg->GetWorld()->Erase(this->GetPosition());
+            tmpOrg->GetPosition().Move(x,y);
         }
         else{
-            this->GetWorld()->addToKill(this);
-            this->Kill();
-            //this->world->removeOrganism2(this);
+            tmpOrg->GetWorld()->addToKill(tmpOrg);
+            tmpOrg->Kill();
         }
-        this->world->Erase(animalPosition);
+        tmpOrg->GetWorld()->Erase(animalPosition);
         printf("WALKA\n");
     }
 }

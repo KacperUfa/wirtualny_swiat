@@ -9,9 +9,10 @@ private:
 
 public:
     Plant(int power, int x, int y, World *world);
-    void Collision();
+    void Collision(Organism* org, int x, int y, Position position);
     virtual void Draw ()=0;
     void Action();
+    Position* Breed(Organism* organismTmp);
     ~Plant();
 };
 
