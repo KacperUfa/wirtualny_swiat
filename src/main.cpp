@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include "Organism.h"
 #include <vector>
 #include "Plant.h"
@@ -6,9 +7,10 @@
 #include "World.h"
 #include "Position.h"
 #include "Wolf.h"
+#include "Sheep.h"
 
 int main(){
-
+    srand(time(NULL));
     int x, y;
     x=10;
     y=10;
@@ -28,11 +30,25 @@ int main(){
      */
 
     std::vector <Organism*> organisms;
-    Wolf *wolf1 = new Wolf(5,5, nullptr);
+    Wolf *wolf1 = new Wolf(4,5, nullptr);
+    Wolf *wolf2 = new Wolf(5,5, nullptr);
+    Wolf *wolf3 = new Wolf(4,4, nullptr);
+    Wolf *wolf4 = new Wolf(5,4, nullptr);
+    //Sheep *sheep1 = new Sheep(2,2, nullptr);
     organisms.push_back(wolf1);
+    organisms.push_back(wolf2);
+    organisms.push_back(wolf3);
+    organisms.push_back(wolf4);
+    //organisms.push_back(sheep1);
     World *world1 = new World(x,y, organisms);
     world1->DrawWorld();
-    world1->MakeTurn();
+    while (true){
+        int x;
+        std::cin>>x;
+        if(x==1) break;
+        world1->MakeTurn();
+
+    }
     return 0;
 }
 

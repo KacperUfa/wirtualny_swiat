@@ -13,13 +13,10 @@ void Plant::Action() {
     if(spread==1){
         int x=(rand()%3)-1;
         int y= (rand()%3)-1;
-        Plant(this->power,this->position.GetX()+x,this->position.GetY()+y,this->world);
+        //Plant(this->power,this->position.GetX()+x,this->position.GetY()+y,this->world);
     }
 }
 
-void Plant::Draw() {
-    printf("P");
-}
 
 void Plant::Collision() {
 

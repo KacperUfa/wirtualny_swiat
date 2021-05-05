@@ -18,6 +18,11 @@ public:
     void PlaceOrganisms();
     void SetWorld();
     void DrawWorld();
+    void addOrganism(Organism* organismTmp);
+    void removeOrganism(Organism* organismTmp);
+    std::vector<std::vector <Organism*>> GetMap();
+    Organism* GetOrganism(int x, int y);
+    Position GetMapSize();
     void Erase(Position position);
     ~World();
 };

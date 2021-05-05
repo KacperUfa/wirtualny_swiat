@@ -8,6 +8,8 @@ private:
 public:
     Wolf(int x, int y, World *world);
     void Draw();
+    void newAnimal(Position* positionXY) override;
+    bool checkSpecies(Organism* organismTmp) override;
     ~Wolf();
 };
 

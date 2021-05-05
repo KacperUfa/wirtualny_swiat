@@ -8,7 +8,10 @@ class Animal: public Organism {
 private:
 public:
     Animal(int power, int initiative, int x, int y, World *world);
-    void Draw ();
+    virtual void Draw ()=0;
+    virtual bool checkSpecies(Organism* organismTmp);
+    Position* Breed(Organism* organismTmp);
+    virtual void newAnimal(Position* position);
     void Collision ();
     void Action ();
 
