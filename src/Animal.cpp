@@ -76,8 +76,17 @@ bool Animal::checkSpecies(Organism* organismTmp) {
 void Animal::newAnimal(Position *position) {}
 
 Position* Animal::Breed(Organism *organismTmp) {
+
     for(int i=-1; i<2;i++){
+        int currentOrganismPosX = organismTmp->GetPositionX();
+        int currentOrganismPosY = organismTmp->GetPositionY();
+        if (currentOrganismPosX + i < 0 || currentOrganismPosX + i > GetWorld()->GetMapSize().GetX()-1) {
+            continue;
+        }
         for(int j=-1;j<2;j++){
+            if (currentOrganismPosY + j < 0 || currentOrganismPosY + j > GetWorld()->GetMapSize().GetY()-1) {
+                continue;
+            }
             if(this->world->GetOrganism(organismTmp->GetPositionX()+i,organismTmp->GetPositionY()+j)== nullptr){
                 Position* newPosition = new Position(organismTmp->GetPositionX()+i,organismTmp->GetPositionY()+j);
                 return newPosition;
