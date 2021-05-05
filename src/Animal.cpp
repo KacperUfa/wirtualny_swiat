@@ -84,7 +84,7 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
     }
     else{
         //walka
-        if(tmpOrg->GetPower()==this->power){
+        if(tmpOrg->GetPower()>=this->power){
             this->Kill();
             this->GetWorld()->addToKill(this);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
