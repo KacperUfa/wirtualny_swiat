@@ -50,11 +50,8 @@ void Fox::Action() {
         this->position.Move(x, y);
         this->world->Erase(animalPosition);
     } else {
-        if(tmpOrg->GetPower()<=this->power) {
+        if (tmpOrg->GetPower() <= this->power) {
             tmpOrg->Collision(this, x, y, animalPosition);
-            std::cout << "Lis walczy" << std::endl;
-        } else{
-            std::cout << "LIS UCIEKŁ OD WALKI" << std::endl;
         }
     }
 }
