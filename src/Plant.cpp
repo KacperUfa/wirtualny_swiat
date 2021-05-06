@@ -49,12 +49,10 @@ Position* Plant::Breed(Organism *organismTmp) {
         int currentOrganismPosX = organismTmp->GetPositionX();
         int currentOrganismPosY = organismTmp->GetPositionY();
         if ((currentOrganismPosX + i) < 0 || (currentOrganismPosX + i) > (GetWorld()->GetMapSize().GetY()-1)) {
-            std::cout<<"i problem\n";
             continue;
         }
         for(int j=-1;j<2;j++){
             if ((currentOrganismPosY + j) < 0 || (currentOrganismPosY + j) > (GetWorld()->GetMapSize().GetX()-1)) {
-                std::cout<<"j problem\n";
                 continue;
             }
             if(this->world->GetOrganism((currentOrganismPosX+i),(currentOrganismPosY+j))== nullptr){
@@ -63,7 +61,6 @@ Position* Plant::Breed(Organism *organismTmp) {
             };
         }
     }
-    std::cout<<"jestes fraJESRT KACPER\n";
     return nullptr;
 }
 
