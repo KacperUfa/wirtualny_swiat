@@ -12,4 +12,6 @@ add_executable(wirtualny_swiat src/main.cpp
         src/Wolf.h src/Wolf.cpp
         src/Sheep.h src/Sheep.cpp
         src/Fox.h src/Fox.cpp
-        src/Grass.h src/Grass.cpp)
+        src/Grass.h src/Grass.cpp
+        src/Dandelion.h src/Dandelion.cpp
+        src/Guarana.h src/Guarana.cpp)

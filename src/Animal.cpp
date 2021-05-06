@@ -45,6 +45,10 @@ void Animal::Action() {
         }
 }
 
+void Animal::Move(int x, int y) {
+    this->position.Move(x,y);
+}
+
 bool Animal::checkSpecies(Organism* organismTmp) {
  return false;
 }
@@ -87,8 +91,9 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
         if(tmpOrg->GetPower()>=this->power){
             this->Kill();
             this->GetWorld()->addToKill(this);
+            tmpOrg->Move(x,y);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
-            tmpOrg->GetPosition().Move(x,y);
+
         }
         else{
             tmpOrg->GetWorld()->addToKill(tmpOrg);

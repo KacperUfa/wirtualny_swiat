@@ -10,6 +10,8 @@
 #include "Wolf.h"
 #include "Sheep.h"
 #include "Fox.h"
+#include "Dandelion.h"
+#include "Guarana.h"
 
 int main(){
     srand(time(NULL));
@@ -37,7 +39,9 @@ int main(){
     Fox *fox2 = new Fox(3,2, nullptr);
     Fox *fox3 = new Fox(7,3, nullptr);
     Fox *fox4 = new Fox(3,7, nullptr);
-    Wolf *wolf1 = new Wolf(1,5, nullptr);
+     */
+    Wolf *wolf1 = new Wolf(1,1, nullptr);
+    /*
     Wolf *wolf2 = new Wolf(6,5, nullptr);
     Wolf *wolf3 = new Wolf(4,3, nullptr);
     Wolf *wolf4 = new Wolf(7,7, nullptr);
@@ -51,7 +55,9 @@ int main(){
     organisms.push_back(fox2);
     organisms.push_back(fox3);
     organisms.push_back(fox4);
-    organisms.push_back(wolf1);
+     */
+    //organisms.push_back(wolf1);
+    /*
     organisms.push_back(wolf2);
     organisms.push_back(wolf3);
     organisms.push_back(wolf4);
@@ -61,10 +67,17 @@ int main(){
     //organisms.push_back(sheep3);
     //organisms.push_back(sheep4);
     /*
-     */
 
     Grass *grass1 = new Grass(1,1, nullptr);
     organisms.push_back(grass1);
+
+    */
+
+    Guarana *guarana1 = new Guarana(1,1,nullptr);
+    //organisms.push_back(guarana1);
+
+    Dandelion *dandelion1 = new Dandelion(1,1, nullptr);
+    //organisms.push_back(dandelion1);
 
     World *world1 = new World(x,y, organisms);
     world1->DrawWorld();

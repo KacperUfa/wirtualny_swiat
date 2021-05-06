@@ -10,27 +10,15 @@ Plant::Plant(int power, int x, int y, World *world): Organism(power,0, x,y,world
 
 void Plant::Action() {
 
-    int spread=(rand()%4)+1;
+    int spread=(rand()%8)+1;
     if(spread==1){
-        int x, y;
-        int actualX=this->position.GetX();
-        int actualY=this->position.GetY();
         Position plantPosition = this->position;
         Position worldMap=this->world->GetMapSize();
 
         Position* breedPosition = this->Breed(this);
         if(breedPosition!= nullptr){
-            //std::cout<<breedPosition->GetX()<<":"<<breedPosition->GetY()<<std::endl;
             this->newPlant(breedPosition);
         }
-/*
-        Position* breedPosition=tmpOrg->Breed(this);
-        if(breedPosition!= nullptr){
-            newAnimal(breedPosition);
-        }*/
-        // printf("KOPULACJA\n");
-
-
     }
 }
 
@@ -44,8 +32,8 @@ void Plant::Collision(Organism* org, int x, int y, Position position) {
     this->GetWorld()->addToKill(this);
     this->Kill();
     this->GetWorld()->Erase(this->GetPosition());
-    org->GetPosition().Move(x,y);
-    this->GetWorld()->Erase(org->GetPosition());
+    org->Move(x,y);
+    org->GetWorld()->Erase(position);
 }
 
 Position* Plant::Breed(Organism *organismTmp) {
