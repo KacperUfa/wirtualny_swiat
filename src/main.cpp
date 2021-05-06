@@ -14,6 +14,7 @@
 #include "Guarana.h"
 #include "Nightshade.h"
 #include "HeraclemSosnowskyi.h"
+#include "Turtle.h"
 
 int main(){
     srand(time(NULL));
@@ -38,39 +39,37 @@ int main(){
     std::vector <Organism*> organisms;
 
     HeraclemSosnowskyi* heraclemSosnowskyi1 = new HeraclemSosnowskyi(1,1,nullptr);
-    organisms.push_back(heraclemSosnowskyi1);
-    /*
     Fox *fox1 = new Fox(2,3, nullptr);
     Fox *fox2 = new Fox(3,2, nullptr);
     Fox *fox3 = new Fox(7,3, nullptr);
     Fox *fox4 = new Fox(3,7, nullptr);
-     */
-    Wolf *wolf1 = new Wolf(1,1, nullptr);
-    /*
+    Wolf *wolf1 = new Wolf(2,2, nullptr);
     Wolf *wolf2 = new Wolf(6,5, nullptr);
     Wolf *wolf3 = new Wolf(4,3, nullptr);
     Wolf *wolf4 = new Wolf(7,7, nullptr);
-     */
     Sheep *sheep1 = new Sheep(2,2, nullptr);
     Sheep *sheep2 = new Sheep(1,2, nullptr);
     Sheep *sheep3 = new Sheep(1,0, nullptr);
     Sheep *sheep4 = new Sheep(2,1, nullptr);
+    Turtle *turtle1 = new Turtle(1,1, nullptr);
     /*
+    organisms.push_back(heraclemSosnowskyi1);
     organisms.push_back(fox1);
     organisms.push_back(fox2);
     organisms.push_back(fox3);
     organisms.push_back(fox4);
      */
-    //organisms.push_back(wolf1);
+    organisms.push_back(wolf1);
     /*
     organisms.push_back(wolf2);
     organisms.push_back(wolf3);
     organisms.push_back(wolf4);
      */
-    organisms.push_back(sheep1);
-    organisms.push_back(sheep2);
-    organisms.push_back(sheep3);
-    organisms.push_back(sheep4);
+    //organisms.push_back(sheep1);
+    //organisms.push_back(sheep2);
+    //organisms.push_back(sheep3);
+    //organisms.push_back(sheep4);
+    organisms.push_back(turtle1);
     /*
 
     Grass *grass1 = new Grass(1,1, nullptr);
