@@ -10,7 +10,16 @@ void Human::Draw() {
 }
 
 void Human::Action() {
+        if(this->canActivate==false){
+            this->countSpecial--;
+            if(this->countSpecial==0){
+                this->canActivate=true;
+            }
+            else if (this->countSpecial>4){
+                this->power--;
+            }
 
+        }
         int x=0;
         int y=0;
         int actualX=this->position.GetX();
@@ -19,15 +28,22 @@ void Human::Action() {
         Position worldMap=this->world->GetMapSize();
         char cmd;
         bool haveNotChosen=true;
-        std::cout<<"       w\n";
-        std::cout<<"       ^\n";
-        std::cout<<"       |\n";
-        std::cout<<"a<-----+----->d\n";
-        std::cout<<"       |\n";
-        std::cout<<"       |\n";
-        std::cout<<"       s\n";
-        std::cin>>cmd;
+
         while (haveNotChosen){
+
+            std::cout<<"       w\n";
+            std::cout<<"       ^\n";
+            std::cout<<"       |\n";
+            std::cout<<"a<-----+----->d\n";
+            std::cout<<"       |\n";
+            std::cout<<"       |\n";
+            std::cout<<"       s\n\n";
+            std::cout<<" -------------\n";
+            std::cout<<"|   ability   |\n";
+            std::cout<<"|      Q      |\n";
+            std::cout<<" -------------\n";
+            std::cin>>cmd;
+
             switch (cmd) {
                 case 'a':
                     x=-1;
@@ -44,6 +60,18 @@ void Human::Action() {
                 case 'd':
                     x=1;
                     haveNotChosen=false;
+                    break;
+                case 'q':
+                    if(canActivate){
+                        this->power+=5;
+                        this->countSpecial=10;
+                        this->canActivate=false;
+
+                        haveNotChosen=false;
+                    }
+                    else{
+                        std::cout<<"It is not ready\n";
+                    }
                     break;
                 default:
                     break;
@@ -74,6 +102,7 @@ void Human::Action() {
             tmpOrg->Collision(this, x,y,animalPosition);
         }
     }
+
 }
 
 void Human::Collision(Organism *tmpOrg, int x, int y, Position position) {

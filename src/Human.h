@@ -3,6 +3,9 @@
 #include "Animal.h"
 
 class Human: public Animal {
+private:
+    int countSpecial;
+    bool canActivate;
 public:
     Human(int x, int y, World *world);
     void Draw();
