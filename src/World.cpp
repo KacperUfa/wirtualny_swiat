@@ -47,7 +47,7 @@ void World::addToKill(Organism *organismTmp) {
 
 void World::addOrganisms() {
     while (this->organismsTMP.size()>0){
-        this->organisms.push_back(this->organismsTMP.front());
+        this->organisms.push_back(this->organismsTMP.back());
         this->organismsTMP.pop_back();
     }
 }
