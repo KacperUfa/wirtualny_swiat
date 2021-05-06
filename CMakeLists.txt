@@ -14,4 +14,6 @@ add_executable(wirtualny_swiat src/main.cpp
         src/Fox.h src/Fox.cpp
         src/Grass.h src/Grass.cpp
         src/Dandelion.h src/Dandelion.cpp
-        src/Guarana.h src/Guarana.cpp)
+        src/Guarana.h src/Guarana.cpp
+        src/Nightshade.h src/Nightshade.cpp
+        src/HeraclemSosnowskyi.h src/HeraclemSosnowskyi.cpp)

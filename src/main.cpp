@@ -12,6 +12,8 @@
 #include "Fox.h"
 #include "Dandelion.h"
 #include "Guarana.h"
+#include "Nightshade.h"
+#include "HeraclemSosnowskyi.h"
 
 int main(){
     srand(time(NULL));
@@ -34,6 +36,9 @@ int main(){
      */
 
     std::vector <Organism*> organisms;
+
+    HeraclemSosnowskyi* heraclemSosnowskyi1 = new HeraclemSosnowskyi(1,1,nullptr);
+    organisms.push_back(heraclemSosnowskyi1);
     /*
     Fox *fox1 = new Fox(2,3, nullptr);
     Fox *fox2 = new Fox(3,2, nullptr);
@@ -47,9 +52,9 @@ int main(){
     Wolf *wolf4 = new Wolf(7,7, nullptr);
      */
     Sheep *sheep1 = new Sheep(2,2, nullptr);
-    //Sheep *sheep2 = new Sheep(7,2, nullptr);
-    //Sheep *sheep3 = new Sheep(9,4, nullptr);
-    //Sheep *sheep4 = new Sheep(2,3, nullptr);
+    Sheep *sheep2 = new Sheep(1,2, nullptr);
+    Sheep *sheep3 = new Sheep(1,0, nullptr);
+    Sheep *sheep4 = new Sheep(2,1, nullptr);
     /*
     organisms.push_back(fox1);
     organisms.push_back(fox2);
@@ -63,9 +68,9 @@ int main(){
     organisms.push_back(wolf4);
      */
     organisms.push_back(sheep1);
-    //organisms.push_back(sheep2);
-    //organisms.push_back(sheep3);
-    //organisms.push_back(sheep4);
+    organisms.push_back(sheep2);
+    organisms.push_back(sheep3);
+    organisms.push_back(sheep4);
     /*
 
     Grass *grass1 = new Grass(1,1, nullptr);
@@ -79,8 +84,12 @@ int main(){
     Dandelion *dandelion1 = new Dandelion(1,1, nullptr);
     //organisms.push_back(dandelion1);
 
+    Nightshade *nightshade1 = new Nightshade(1,1,nullptr);
+    //organisms.push_back(nightshade1);
+    //organisms.push_back(heraclemSosnowskyi1);
     World *world1 = new World(x,y, organisms);
     world1->DrawWorld();
+
     while (true){
         int x;
         std::cin>>x;
@@ -88,6 +97,10 @@ int main(){
         world1->MakeTurn();
         world1->addOrganisms();
         world1->removeOrganisms();
+    }
+
+    if(dynamic_cast<Plant*>(sheep1)){
+        std::cout<<"essa";
     }
     return 0;
 }
