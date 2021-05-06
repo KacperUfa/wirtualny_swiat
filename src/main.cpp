@@ -16,6 +16,7 @@
 #include "HeraclemSosnowskyi.h"
 #include "Turtle.h"
 #include "Antelope.h"
+#include "Human.h"
 
 int main(){
     srand(time(NULL));
@@ -54,6 +55,7 @@ int main(){
     Sheep *sheep4 = new Sheep(2,1, nullptr);
     Turtle *turtle1 = new Turtle(1,1, nullptr);
     Antelope *antelope1 = new Antelope(0,0, nullptr);
+    Human* human1 = new Human(1,1, nullptr);
     /*
     organisms.push_back(heraclemSosnowskyi1);
     organisms.push_back(fox1);
@@ -72,7 +74,8 @@ int main(){
     //organisms.push_back(sheep3);
     //organisms.push_back(sheep4);
     //organisms.push_back(turtle1);
-    organisms.push_back(antelope1);
+    //organisms.push_back(antelope1);
+    organisms.push_back(human1);
     /*
 
     Grass *grass1 = new Grass(1,1, nullptr);
@@ -94,13 +97,16 @@ int main(){
 
     while (true){
         int x;
+        std::cout<<"1. Next Move\n";
+        std::cout<<"2. Quit\n";
         std::cin>>x;
-        if(x==1) break;
-        world1->MakeTurn();
-        world1->addOrganisms();
-        world1->removeOrganisms();
+        if(x==1){
+            world1->MakeTurn();
+            world1->addOrganisms();
+            world1->removeOrganisms();
+        }
+        else if(x==2) break;
     }
-
     return 0;
 }
 

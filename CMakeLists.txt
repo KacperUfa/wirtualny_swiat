@@ -18,4 +18,5 @@ add_executable(wirtualny_swiat src/main.cpp
         src/Nightshade.h src/Nightshade.cpp
         src/HeraclemSosnowskyi.h src/HeraclemSosnowskyi.cpp
         src/Turtle.h src/Turtle.cpp
-        src/Antelope.h src/Antelope.cpp)
+        src/Antelope.h src/Antelope.cpp
+        src/Human.h src/Human.cpp)
