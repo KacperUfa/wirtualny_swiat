@@ -10,7 +10,7 @@ Plant::Plant(int power, int x, int y, World *world): Organism(power,0, x,y,world
 
 void Plant::Action() {
 
-    int spread=(rand()%1)+1;
+    int spread=(rand()%4)+1;
     if(spread==1){
         int x, y;
         int actualX=this->position.GetX();
@@ -20,7 +20,7 @@ void Plant::Action() {
 
         Position* breedPosition = this->Breed(this);
         if(breedPosition!= nullptr){
-            std::cout<<breedPosition->GetX()<<":"<<breedPosition->GetY()<<std::endl;
+            //std::cout<<breedPosition->GetX()<<":"<<breedPosition->GetY()<<std::endl;
             this->newPlant(breedPosition);
         }
 /*
@@ -41,7 +41,11 @@ bool Plant::checkSpecies(Organism *organismTmp) {
 void Plant::newPlant(Position *position) {}
 
 void Plant::Collision(Organism* org, int x, int y, Position position) {
-
+    this->GetWorld()->addToKill(this);
+    this->Kill();
+    this->GetWorld()->Erase(this->GetPosition());
+    org->GetPosition().Move(x,y);
+    this->GetWorld()->Erase(org->GetPosition());
 }
 
 Position* Plant::Breed(Organism *organismTmp) {
