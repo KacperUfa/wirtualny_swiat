@@ -9,6 +9,10 @@ void Grass::Draw() {
 }
 
 
+bool Grass::checkSpecies(Organism *organismTmp) {
+    return dynamic_cast<Grass*>(organismTmp) != nullptr;
+}
+
 void Grass::newPlant(Position *position){
     int x=position->GetX();
     int y=position->GetY();

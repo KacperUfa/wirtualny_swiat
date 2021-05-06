@@ -13,6 +13,7 @@ public:
     virtual void Draw ()=0;
     void Action();
     virtual void newPlant(Position* position);
+    virtual bool checkSpecies(Organism* organismTmp);
     Position* Breed(Organism* organismTmp);
     ~Plant();
 };

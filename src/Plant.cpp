@@ -2,14 +2,15 @@
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
+#include <iostream>
 
 Plant::Plant(int power, int x, int y, World *world): Organism(power,0, x,y,world) {
 
 }
 
 void Plant::Action() {
-    srand(time(NULL));
-    int spread=(rand()%10)-0;
+
+    int spread=(rand()%1)+1;
     if(spread==1){
         int x, y;
         int actualX=this->position.GetX();
@@ -17,33 +18,24 @@ void Plant::Action() {
         Position plantPosition = this->position;
         Position worldMap=this->world->GetMapSize();
 
-        do{
-            x=(rand()%3)-1;
-            y=(rand()%3)-1;
-
-        }while(x==0 && y ==0);
-
-        if(actualX==0 && x<0){
-            x=1;
+        Position* breedPosition = this->Breed(this);
+        if(breedPosition!= nullptr){
+            std::cout<<breedPosition->GetX()<<":"<<breedPosition->GetY()<<std::endl;
+            this->newPlant(breedPosition);
         }
-        else if(actualX== worldMap.GetX()-1 && x>0){
-            x=-1;
-        }
-        if(actualY==0 && y<0){
-            y=1;
-        }
-        else if(actualY== worldMap.GetY()-1 && y>0){
-            y=-1;
-        }
+/*
+        Position* breedPosition=tmpOrg->Breed(this);
+        if(breedPosition!= nullptr){
+            newAnimal(breedPosition);
+        }*/
+        // printf("KOPULACJA\n");
 
-        Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
-        if(tmpOrg== nullptr){
-
-            this->position.Move(x,y);
-
-        }
 
     }
+}
+
+bool Plant::checkSpecies(Organism *organismTmp) {
+    return false;
 }
 
 void Plant::newPlant(Position *position) {}
@@ -53,6 +45,25 @@ void Plant::Collision(Organism* org, int x, int y, Position position) {
 }
 
 Position* Plant::Breed(Organism *organismTmp) {
+    for(int i=-1; i<2;i++){
+        int currentOrganismPosX = organismTmp->GetPositionX();
+        int currentOrganismPosY = organismTmp->GetPositionY();
+        if ((currentOrganismPosX + i) < 0 || (currentOrganismPosX + i) > (GetWorld()->GetMapSize().GetX()-1)) {
+            std::cout<<"i problem\n";
+            continue;
+        }
+        for(int j=-1;j<2;j++){
+            if ((currentOrganismPosY + j) < 0 || (currentOrganismPosY + j) > (GetWorld()->GetMapSize().GetY()-1)) {
+                std::cout<<"j problem\n";
+                continue;
+            }
+            if(this->world->GetOrganism((currentOrganismPosX+i),(currentOrganismPosY+j))== nullptr){
+                Position* newPosition = new Position((currentOrganismPosX+i),(currentOrganismPosY+j));
+                return newPosition;
+            };
+        }
+    }
+    std::cout<<"jestes fraJESRT KACPER\n";
     return nullptr;
 }
 

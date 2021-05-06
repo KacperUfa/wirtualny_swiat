@@ -32,7 +32,7 @@ int main(){
      */
 
     std::vector <Organism*> organisms;
-
+    /*
     Fox *fox1 = new Fox(2,3, nullptr);
     Fox *fox2 = new Fox(3,2, nullptr);
     Fox *fox3 = new Fox(7,3, nullptr);
@@ -57,10 +57,11 @@ int main(){
     organisms.push_back(sheep2);
     organisms.push_back(sheep3);
     organisms.push_back(sheep4);
-     /*
+     */
+
     Grass *grass1 = new Grass(5,5, nullptr);
     organisms.push_back(grass1);
-      */
+
     World *world1 = new World(x,y, organisms);
     world1->DrawWorld();
     while (true){
