@@ -14,8 +14,8 @@
 int main(){
     srand(time(NULL));
     int x, y;
-    x=10;
-    y=10;
+    x=20;
+    y=7;
     /*
     std::cout<<"X dimension: "<<std::endl;
     std::cin>>x;
@@ -59,7 +59,7 @@ int main(){
     organisms.push_back(sheep4);
      */
 
-    Grass *grass1 = new Grass(5,5, nullptr);
+    Grass *grass1 = new Grass(10,5, nullptr);
     organisms.push_back(grass1);
 
     World *world1 = new World(x,y, organisms);

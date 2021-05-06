@@ -1,9 +1,9 @@
 #include "World.h"
 #include <iostream>
 
-World::World(int x, int y, std::vector <Organism*> organisms): mapSize(x,y){
+World::World(int x, int y, std::vector <Organism*> organisms): mapSize(y,x){
     this->organisms=organisms;
-    std::vector<std::vector <Organism*>> mapTMP(x,std::vector<Organism*>(y, nullptr));
+    std::vector<std::vector <Organism*>> mapTMP(y,std::vector<Organism*>(x, nullptr));
     this->map=mapTMP;
     this->SetWorld();
     this->PlaceOrganisms();
@@ -32,7 +32,7 @@ void World::MakeTurn() {
             if((*iter)->GetState()){
                 int x=(*iter)->GetPositionX();
                 int y=(*iter)->GetPositionY();
-                this->map[x][y]=*iter;
+                this->map[y][x]=*iter;
             }
 
         }
@@ -79,7 +79,7 @@ void World::PlaceOrganisms() {
 
         int x=(*iter)->GetPositionX();
         int y=(*iter)->GetPositionY();
-        this->map[x][y]=*iter;
+        this->map[y][x]=*iter;
     }
 }
 
@@ -87,7 +87,7 @@ void World::addOrganism(Organism *organismTmp) {
     this->organismsTMP.push_back(organismTmp);
     int x=organismTmp->GetPositionX();
     int y=organismTmp->GetPositionY();
-    this->map[x][y]=organismTmp;
+    this->map[y][x]=organismTmp;
 }
 
 std::vector<std::vector <Organism*>> World::GetMap(){
@@ -95,9 +95,9 @@ std::vector<std::vector <Organism*>> World::GetMap(){
 }
 
 Organism* World::GetOrganism(int x, int y) {
-    return this->map[x][y];
+    return this->map[y][x];
 }
 
 void World::Erase(Position position) {
-    map[position.GetX()][position.GetY()]= nullptr;
+    map[position.GetY()][position.GetX()]= nullptr;
 }
