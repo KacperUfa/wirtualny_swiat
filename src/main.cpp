@@ -15,12 +15,13 @@
 #include "Nightshade.h"
 #include "HeraclemSosnowskyi.h"
 #include "Turtle.h"
+#include "Antelope.h"
 
 int main(){
     srand(time(NULL));
     int x, y;
-    x=3;
-    y=3;
+    x=4;
+    y=4;
     /*
     std::cout<<"X dimension: "<<std::endl;
     std::cin>>x;
@@ -52,6 +53,7 @@ int main(){
     Sheep *sheep3 = new Sheep(1,0, nullptr);
     Sheep *sheep4 = new Sheep(2,1, nullptr);
     Turtle *turtle1 = new Turtle(1,1, nullptr);
+    Antelope *antelope1 = new Antelope(0,0, nullptr);
     /*
     organisms.push_back(heraclemSosnowskyi1);
     organisms.push_back(fox1);
@@ -59,7 +61,7 @@ int main(){
     organisms.push_back(fox3);
     organisms.push_back(fox4);
      */
-    organisms.push_back(wolf1);
+    //organisms.push_back(wolf1);
     /*
     organisms.push_back(wolf2);
     organisms.push_back(wolf3);
@@ -69,7 +71,8 @@ int main(){
     //organisms.push_back(sheep2);
     //organisms.push_back(sheep3);
     //organisms.push_back(sheep4);
-    organisms.push_back(turtle1);
+    //organisms.push_back(turtle1);
+    organisms.push_back(antelope1);
     /*
 
     Grass *grass1 = new Grass(1,1, nullptr);
@@ -98,9 +101,6 @@ int main(){
         world1->removeOrganisms();
     }
 
-    if(dynamic_cast<Plant*>(sheep1)){
-        std::cout<<"essa";
-    }
     return 0;
 }
 
