@@ -20,6 +20,7 @@ void Fox::newAnimal(Position *positionXY) {
     this->world->addOrganism(newAnimal);
 }
 
+//Fox action differs from basic animal, because he won't go to the field with stronger animal
 void Fox::Action() {
     int x, y;
     int actualX = this->position.GetX();
@@ -50,22 +51,22 @@ void Fox::Action() {
         this->position.Move(x, y);
         this->world->Erase(animalPosition);
         this->SayName();
-        std::cout<<"moved\n";
+        std::cout << "moved\n";
     } else {
         if (tmpOrg->GetPower() <= this->power) {
             tmpOrg->Collision(this, x, y, animalPosition);
-        }
-        else{
+        } else {
             this->SayName();
-            std::cout<<"stopped from moving\n";
+            std::cout << "stopped from moving\n";
         }
     }
 }
 
 void Fox::SayName() {
-    std::cout<<"Fox ";
+    std::cout << "Fox ";
 }
 
 Fox::~Fox() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

@@ -112,5 +112,6 @@ void HeraclemSosnowskyi::newPlant(Position *position) {
 }
 
 HeraclemSosnowskyi::~HeraclemSosnowskyi() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

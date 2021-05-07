@@ -9,8 +9,6 @@ animal it stops itself from doing that
  */
 
 class Fox : public Animal {
-private:
-
 public:
     Fox(int x, int y, World *world);
 

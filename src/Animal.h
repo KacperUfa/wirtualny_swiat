@@ -8,7 +8,6 @@ Base class for all animals it implements basic collision for fighting and breedi
  */
 
 class Animal : public Organism {
-private:
 public:
     Animal(int power, int initiative, int x, int y, World *world);
 

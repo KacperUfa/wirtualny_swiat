@@ -38,5 +38,6 @@ void Guarana::newPlant(Position *position) {
 }
 
 Guarana::~Guarana() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

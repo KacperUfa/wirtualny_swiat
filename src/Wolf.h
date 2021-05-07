@@ -8,8 +8,6 @@ Wolf is the strongest animals but it doesn't have any special actions
  */
 
 class Wolf : public Animal {
-private:
-
 public:
     Wolf(int x, int y, World *world);
 

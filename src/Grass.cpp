@@ -25,5 +25,6 @@ void Grass::newPlant(Position *position) {
 }
 
 Grass::~Grass() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

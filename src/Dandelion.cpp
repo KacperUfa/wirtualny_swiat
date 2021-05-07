@@ -79,5 +79,6 @@ void Dandelion::newPlant(Position *position) {
 }
 
 Dandelion::~Dandelion() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

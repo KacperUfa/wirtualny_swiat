@@ -46,5 +46,6 @@ void Nightshade::newPlant(Position *position) {
 }
 
 Nightshade::~Nightshade() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

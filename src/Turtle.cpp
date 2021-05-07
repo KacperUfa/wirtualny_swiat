@@ -110,5 +110,6 @@ void Turtle::newAnimal(Position *positionXY) {
 }
 
 Turtle::~Turtle() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

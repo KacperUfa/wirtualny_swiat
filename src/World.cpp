@@ -68,6 +68,7 @@ Position World::GetMapSize() {
 void World::removeOrganism(Organism *organismTmp) {
     auto newEnd = std::remove(this->organisms.begin(), this->organisms.end(), organismTmp);
     this->organisms.erase(newEnd, this->organisms.end());
+    delete organismTmp;
 }
 
 //remove all organism from main vector
@@ -119,4 +120,8 @@ void World::SortOrganisms() {
 //erasing the existence of the organism from the map
 void World::Erase(Position position) {
     map[position.GetY()][position.GetX()] = nullptr;
+}
+
+World::~World() {
+    std::cout << "THE END IS COMING!";
 }

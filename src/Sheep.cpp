@@ -25,5 +25,6 @@ void Sheep::newAnimal(Position *positionXY) {
 }
 
 Sheep::~Sheep() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

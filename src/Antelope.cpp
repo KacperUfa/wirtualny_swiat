@@ -114,5 +114,6 @@ void Antelope::newAnimal(Position *positionXY) {
 }
 
 Antelope::~Antelope() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

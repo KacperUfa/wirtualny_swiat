@@ -25,5 +25,6 @@ void Wolf::SayName() {
 }
 
 Wolf::~Wolf() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

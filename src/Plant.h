@@ -8,8 +8,6 @@ Basic class for all plants, it implements basic action for spreading seeds and c
  */
 
 class Plant : public Organism {
-private:
-
 public:
     Plant(int power, int x, int y, World *world);
 
