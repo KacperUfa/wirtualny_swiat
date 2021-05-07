@@ -27,6 +27,7 @@ public:
     void SetPositionX(int x);
     void SetPositionY(int y);
     void Move(int x,int y);
+    virtual void SayName()=0;
     virtual void Action()=0;
     virtual Position* Breed(Organism* organismTmp)=0;
     virtual void Collision(Organism* org, int x, int y, Position position)=0;

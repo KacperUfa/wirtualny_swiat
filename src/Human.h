@@ -9,6 +9,7 @@ private:
 public:
     Human(int x, int y, World *world);
     void Draw();
+    void SayName() override;
     void newAnimal(Position* positionXY) override;
     bool checkSpecies(Organism* organismTmp) override;
     void Action() override;

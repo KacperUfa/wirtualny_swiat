@@ -49,6 +49,8 @@ void HeraclemSosnowskyi::Action() {
         Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
 
         if(tmpOrg== nullptr){
+            this->SayName();
+            std::cout<<"propageted\n";
             Position* newPosition = new Position(actualX+x,actualY+y);
             this->newPlant(newPosition);
         }
@@ -69,6 +71,10 @@ void HeraclemSosnowskyi::Action() {
                 Organism* orgTMP = this->world->GetOrganism((currentOrganismPosX + i), (currentOrganismPosY + j));
 
                 if(!(this->checkIfPlant(orgTMP))){
+                    this->SayName();
+                    std::cout<<"killed ";
+                    orgTMP->SayName();
+                    std::cout<<"\n";
                     orgTMP->GetWorld()->addToKill(orgTMP);
                     orgTMP->Kill();
                     orgTMP->GetWorld()->Erase(orgTMP->GetPosition());
@@ -79,6 +85,14 @@ void HeraclemSosnowskyi::Action() {
 }
 
 void HeraclemSosnowskyi::Collision(Organism *org, int x, int y, Position position) {
+    this->SayName();
+    std::cout<<"was eaten by ";
+    org->SayName();
+    std::cout<<"\n";
+    this->SayName();
+    std::cout<<"killed ";
+    org->SayName();
+    std::cout<<"\n";
     this->GetWorld()->addToKill(this);
     org->GetWorld()->addToKill(org);
     this->Kill();
@@ -86,6 +100,10 @@ void HeraclemSosnowskyi::Collision(Organism *org, int x, int y, Position positio
     this->GetWorld()->Erase(this->GetPosition());
     org->GetWorld()->Erase(org->GetPosition());
     std::cout<<"zabity zostal\n";
+}
+
+void HeraclemSosnowskyi::SayName() {
+    std::cout<<"Heraclem Sosnowskyi ";
 }
 
 void HeraclemSosnowskyi::newPlant(Position *position){

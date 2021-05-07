@@ -1,4 +1,5 @@
 #include "Dandelion.h"
+#include <iostream>
 
 Dandelion::Dandelion(int x, int y, World *world):Plant(0,x, y, world) {
 
@@ -51,6 +52,8 @@ void Dandelion::Action() {
             Organism *tmpOrg = this->world->GetOrganism(actualX + x, actualY + y);
 
             if (tmpOrg == nullptr) {
+                this->SayName();
+                std::cout<<"propageted\n";
                 Position *newPosition = new Position(actualX + x, actualY + y);
                 this->newPlant(newPosition);
             }
@@ -58,6 +61,10 @@ void Dandelion::Action() {
 
 
     }
+}
+
+void Dandelion::SayName() {
+    std::cout<<"Dandelion ";
 }
 
 bool Dandelion::checkSpecies(Organism *organismTmp) {

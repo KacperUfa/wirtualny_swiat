@@ -6,6 +6,7 @@ class Nightshade: public Plant {
 public:
     Nightshade(int x, int y, World *world);
     void Draw() override;
+    void SayName() override;
     void newPlant(Position *position) override;
     bool checkSpecies(Organism* organismTmp) override;
     void Collision(Organism* org, int x, int y, Position position) override;

@@ -12,17 +12,6 @@ void Plant::Action() {
 
     int spread=(rand()%10)+1;
     if(spread==1 || spread==2){
-
-    /*
-        Position plantPosition = this->position;
-        Position worldMap=this->world->GetMapSize();
-
-        Position* breedPosition = this->Breed(this);
-        if(breedPosition!= nullptr){
-            this->newPlant(breedPosition);
-        }
-        */
-
         int x, y;
         int actualX=this->position.GetX();
         int actualY=this->position.GetY();
@@ -51,6 +40,8 @@ void Plant::Action() {
         Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
 
         if(tmpOrg== nullptr){
+            this->SayName();
+            std::cout<<"propageted\n";
             Position* newPosition = new Position(actualX+x,actualY+y);
             this->newPlant(newPosition);
         }
@@ -66,6 +57,10 @@ bool Plant::checkSpecies(Organism *organismTmp) {
 void Plant::newPlant(Position *position) {}
 
 void Plant::Collision(Organism* org, int x, int y, Position position) {
+    this->SayName();
+    std::cout<<"was eaten by ";
+    org->SayName();
+    std::cout<<"\n";
     this->GetWorld()->addToKill(this);
     this->Kill();
     this->GetWorld()->Erase(this->GetPosition());

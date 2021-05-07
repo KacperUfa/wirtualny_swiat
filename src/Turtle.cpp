@@ -42,11 +42,21 @@ void Turtle::Action() {
         if(tmpOrg== nullptr){
             this->position.Move(x,y);
             this->world->Erase(animalPosition);
+            this->SayName();
+            std::cout<<"moved\n";
         }
         else{
             tmpOrg->Collision(this, x,y,animalPosition);
         }
     }
+    else{
+        this->SayName();
+        std::cout<<"did not move\n";
+    }
+}
+
+void Turtle::SayName() {
+    std::cout<<"Turtle ";
 }
 
 void Turtle::Collision(Organism *tmpOrg, int x, int y, Position position) {
@@ -56,15 +66,25 @@ void Turtle::Collision(Organism *tmpOrg, int x, int y, Position position) {
         Position* breedPosition=tmpOrg->Breed(this);
         if(breedPosition!= nullptr){
             newAnimal(breedPosition);
+            this->SayName();
+            std::cout<<"multiplied\n";
         }
-        printf("KOPULACJA\n");
+        else{
+            this->SayName();
+            std::cout<<"tried to multiply\n";
+        }
     }
     else{
         //walka
         if(tmpOrg->GetPower()<5){
-            std::cout<<"naura frajerze\n";
+            this->SayName();
+            std::cout<<"defended itself\n";
         }
         else if(tmpOrg->GetPower()>=this->power){
+            tmpOrg->SayName();
+            std::cout<<"killed ";
+            this->SayName();
+            std::cout<<"\n";
             this->Kill();
             this->GetWorld()->addToKill(this);
             tmpOrg->Move(x,y);
@@ -73,6 +93,10 @@ void Turtle::Collision(Organism *tmpOrg, int x, int y, Position position) {
 
         }
         else{
+            tmpOrg->SayName();
+            std::cout<<"killed itself by attacking ";
+            this->SayName();
+            std::cout<<"\n";
             tmpOrg->GetWorld()->addToKill(tmpOrg);
             tmpOrg->Kill();
             tmpOrg->GetWorld()->Erase(position);

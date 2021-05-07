@@ -1,4 +1,5 @@
 #include "Sheep.h"
+#include <iostream>
 
 Sheep::Sheep(int x, int y, World *world): Animal(4,4,x,y,world) {
 
@@ -6,6 +7,10 @@ Sheep::Sheep(int x, int y, World *world): Animal(4,4,x,y,world) {
 
 void Sheep::Draw() {
     printf("S");
+}
+
+void Sheep::SayName() {
+    std::cout<<"Sheep ";
 }
 
 bool Sheep::checkSpecies(Organism *organismTmp) {

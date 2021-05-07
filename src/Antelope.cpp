@@ -43,11 +43,17 @@ void Antelope::Action() {
         if(tmpOrg== nullptr){
             this->position.Move(x,y);
             this->world->Erase(animalPosition);
+            this->SayName();
+            std::cout<<"moved\n";
         }
         else{
             tmpOrg->Collision(this, x,y,animalPosition);
         }
 
+}
+
+void Antelope::SayName() {
+    std::cout<<"Antelope ";
 }
 
 void Antelope::Collision(Organism *tmpOrg, int x, int y, Position position) {
@@ -57,23 +63,32 @@ void Antelope::Collision(Organism *tmpOrg, int x, int y, Position position) {
         Position* breedPosition=tmpOrg->Breed(this);
         if(breedPosition!= nullptr){
             newAnimal(breedPosition);
+            this->SayName();
+            std::cout<<"multiplied\n";
         }
-        printf("KOPULACJA\n");
+        else{
+            this->SayName();
+            std::cout<<"tried to multiply\n";
+        }
     }
     else{
         //walka
         int randomise=(rand()%2)+1;
         if(randomise==1 && this->Breed(this)!= nullptr){
-
             Position* escapePosition = Breed(this);
             this->Move(escapePosition);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
             tmpOrg->Move(x,y);
             tmpOrg->GetWorld()->Erase(position);
-            std::cout<<"UCIECZKA\n";
+            this->SayName();
+            std::cout<<"escaped\n";
         }
         else{
             if(tmpOrg->GetPower()>=this->power){
+                tmpOrg->SayName();
+                std::cout<<"killed ";
+                this->SayName();
+                std::cout<<"\n";
                 this->Kill();
                 this->GetWorld()->addToKill(this);
                 tmpOrg->Move(x,y);
@@ -82,11 +97,14 @@ void Antelope::Collision(Organism *tmpOrg, int x, int y, Position position) {
 
             }
             else{
+                tmpOrg->SayName();
+                std::cout<<"killed itself by attacking ";
+                this->SayName();
+                std::cout<<"\n";
                 tmpOrg->GetWorld()->addToKill(tmpOrg);
                 tmpOrg->Kill();
                 tmpOrg->GetWorld()->Erase(position);
             }
-            printf("WALKA\n");
         }
     }
 }

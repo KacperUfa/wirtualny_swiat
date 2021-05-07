@@ -1,4 +1,5 @@
 #include "Grass.h"
+#include <iostream>
 
 Grass::Grass(int x, int y, World *world):Plant(0,x, y, world) {
 
@@ -8,6 +9,9 @@ void Grass::Draw() {
     printf("G");
 }
 
+void Grass::SayName() {
+    std::cout<<"Grass ";
+}
 
 bool Grass::checkSpecies(Organism *organismTmp) {
     return dynamic_cast<Grass*>(organismTmp) != nullptr;

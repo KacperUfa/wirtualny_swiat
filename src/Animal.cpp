@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
+#include <iostream>
 
 Animal::Animal(int power, int initiative, int x, int y, World *world):Organism(power,initiative,x,y,world) {
 
@@ -38,6 +39,8 @@ void Animal::Action() {
         if(tmpOrg== nullptr){
             this->position.Move(x,y);
             this->world->Erase(animalPosition);
+            this->SayName();
+            std::cout<<"moved\n";
         }
         else{
             tmpOrg->Collision(this, x,y,animalPosition);
@@ -82,16 +85,26 @@ Position* Animal::Breed(Organism *organismTmp) {
 void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition ) {
     if(tmpOrg->checkSpecies(this)){
 
-        //kopiulacja
+        //kopulacja
         Position* breedPosition=tmpOrg->Breed(this);
         if(breedPosition!= nullptr){
             newAnimal(breedPosition);
+            this->SayName();
+            std::cout<<"multiplied\n";
         }
-        printf("KOPULACJA\n");
+        else{
+            this->SayName();
+            std::cout<<"tried to multiply\n";
+        }
+
     }
     else{
         //walka
         if(tmpOrg->GetPower()>=this->power){
+            tmpOrg->SayName();
+            std::cout<<"killed ";
+            this->SayName();
+            std::cout<<"\n";
             this->Kill();
             this->GetWorld()->addToKill(this);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
@@ -100,11 +113,14 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
 
         }
         else{
+            tmpOrg->SayName();
+            std::cout<<"killed itself by attacking ";
+            this->SayName();
+            std::cout<<"\n";
             tmpOrg->GetWorld()->addToKill(tmpOrg);
             tmpOrg->Kill();
         }
         tmpOrg->GetWorld()->Erase(animalPosition);
-        printf("WALKA\n");
     }
 }
 

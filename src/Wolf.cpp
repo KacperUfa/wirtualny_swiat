@@ -1,4 +1,5 @@
 #include "Wolf.h"
+#include <iostream>
 
 Wolf::Wolf(int x, int y, World *world): Animal(9,5,x,y,world) {
 
@@ -17,6 +18,10 @@ void Wolf::newAnimal(Position* positionXY) {
     int y=positionXY->GetY();
     Wolf *newAnimal = new Wolf(x,y, this->world);
     this->world->addOrganism(newAnimal);
+}
+
+void Wolf::SayName() {
+    std::cout<<"Wolf ";
 }
 
 Wolf::~Wolf() noexcept {

@@ -49,11 +49,21 @@ void Fox::Action() {
     if (tmpOrg == nullptr) {
         this->position.Move(x, y);
         this->world->Erase(animalPosition);
+        this->SayName();
+        std::cout<<"moved\n";
     } else {
         if (tmpOrg->GetPower() <= this->power) {
             tmpOrg->Collision(this, x, y, animalPosition);
         }
+        else{
+            this->SayName();
+            std::cout<<"stopped from moving\n";
+        }
     }
+}
+
+void Fox::SayName() {
+    std::cout<<"Fox ";
 }
 
 Fox::~Fox() noexcept {

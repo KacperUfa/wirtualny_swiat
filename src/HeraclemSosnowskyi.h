@@ -7,6 +7,7 @@ public:
     HeraclemSosnowskyi(int x, int y, World *world);
     void Draw() override;
     void Action() override;
+    void SayName() override;
     void newPlant(Position *position) override;
     bool checkSpecies(Organism* organismTmp) override;
     bool checkIfPlant(Organism* organismTmp);

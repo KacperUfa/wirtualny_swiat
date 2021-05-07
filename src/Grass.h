@@ -6,6 +6,7 @@ class Grass : public Plant {
 public:
     Grass(int x, int y, World *world);
     void Draw() override;
+    void SayName() override;
     void newPlant(Position *position) override;
     bool checkSpecies(Organism* organismTmp) override;
     ~Grass();
