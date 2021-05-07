@@ -19,4 +19,4 @@ add_executable(wirtualny_swiat src/main.cpp
         src/HeraclemSosnowskyi.h src/HeraclemSosnowskyi.cpp
         src/Turtle.h src/Turtle.cpp
         src/Antelope.h src/Antelope.cpp
-        src/Human.h src/Human.cpp)
+        src/Human.h src/Human.cpp src/SavoLoader.cpp src/SavoLoader.h)

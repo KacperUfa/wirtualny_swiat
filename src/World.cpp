@@ -8,6 +8,10 @@ World::World(int x, int y, std::vector<Organism *> organisms) : mapSize(y, x) {
     this->SetWorld();
     this->PlaceOrganisms();
     std::cout << "Created new world\n";
+}
+
+const std::vector<Organism *> &World::getOrganisms() const {
+    return organisms;
 };
 
 //Drawing in console the entire world with all organisms in it

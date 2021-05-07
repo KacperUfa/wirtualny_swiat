@@ -49,6 +49,8 @@ public:
     void Erase(Position position);
 
     ~World();
+
+    const std::vector<Organism *> &getOrganisms() const;
 };
 
 #include "Organism.h"
