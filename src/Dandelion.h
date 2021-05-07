@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_DANDELION_H
 
 #include "Plant.h"
+#include <iostream>
 
 /*
 Dandelion is a basic plant, but in it's action it tries 3 times to reproduce itself
@@ -20,6 +21,8 @@ public:
     void newPlant(Position *position) override;
 
     bool checkSpecies(Organism *organismTmp) override;
+
+    std::string GetName();
 
     ~Dandelion();
 };

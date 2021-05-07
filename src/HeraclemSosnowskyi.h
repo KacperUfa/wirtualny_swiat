@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_HERACLEMSOSNOWSKYI_H
 
 #include "Plant.h"
+#include <iostream>
 
 /*
 Haraclem Sosnowskyi is the most dangerous plant, any animal that eats it dies,
@@ -25,6 +26,8 @@ public:
     bool checkIfPlant(Organism *organismTmp);
 
     void Collision(Organism *org, int x, int y, Position position) override;
+
+    std::string GetName();
 
     ~HeraclemSosnowskyi();
 };

@@ -166,6 +166,10 @@ void Human::newAnimal(Position* positionXY) {
     this->world->addOrganism(newAnimal);
 }
 
+std::string Human::GetName() {
+    return "Human";
+}
+
 Human::~Human() noexcept {
 
 }

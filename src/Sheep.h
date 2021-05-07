@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_SHEEP_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Sheep is average animal without any additional actions
@@ -18,6 +19,8 @@ public:
     void newAnimal(Position *positionXY) override;
 
     bool checkSpecies(Organism *organismTmp) override;
+
+    std::string GetName();
 
     ~Sheep();
 };

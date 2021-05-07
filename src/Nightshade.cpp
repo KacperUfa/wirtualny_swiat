@@ -45,6 +45,10 @@ void Nightshade::newPlant(Position *position) {
     this->world->addOrganism(newPlant);
 }
 
+std::string Nightshade::GetName() {
+    return "Nightshade";
+}
+
 Nightshade::~Nightshade() noexcept {
 
 }

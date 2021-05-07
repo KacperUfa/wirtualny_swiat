@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_FOX_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Fox hase the biggest initiative, so it always moves first, but if it would move into stronger
@@ -21,6 +22,8 @@ public:
     void newAnimal(Position *positionXY) override;
 
     bool checkSpecies(Organism *organismTmp) override;
+
+    std::string GetName();
 
     void Action() override;
 

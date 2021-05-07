@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_NIGHTSHADE_H
 
 #include "Plant.h"
+#include <iostream>
 
 class Nightshade : public Plant {
 public:
@@ -16,6 +17,8 @@ public:
     bool checkSpecies(Organism *organismTmp) override;
 
     void Collision(Organism *org, int x, int y, Position position) override;
+
+    std::string GetName();
 
     ~Nightshade();
 };

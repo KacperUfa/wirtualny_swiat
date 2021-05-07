@@ -26,9 +26,8 @@ bool SavoLoader::saveWorld(World *world) {
     int y = world->GetMapSize().GetY();
     std::vector<Organism *> organisms = world->getOrganisms();
     file << (char)x+0 << " " << (char)y+0 << std::endl;
-    file << (char)x+0 << " " << (char)y+0 << std::endl;
     for (auto iter = organisms.begin(); iter != organisms.end(); iter++) {
-       file << typeid(*iter).name() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0 << std::endl;
+       file << (*iter)->GetName() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0 << std::endl;
     }
     file.close();
     return true;

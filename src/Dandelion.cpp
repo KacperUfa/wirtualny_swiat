@@ -78,6 +78,10 @@ void Dandelion::newPlant(Position *position) {
     this->world->addOrganism(newPlant);
 }
 
+std::string Dandelion::GetName() {
+    return "Dandelion";
+}
+
 Dandelion::~Dandelion() noexcept {
 
 }

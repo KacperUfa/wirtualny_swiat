@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_HUMAN_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Human is controlled by player, who decides in which direction to move or to use special ability, which is increasing
@@ -26,6 +27,8 @@ public:
     void Action() override;
 
     void Collision(Organism *org, int x, int y, Position position) override;
+
+    std::string GetName();
 
     ~Human();
 };

@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_ANTELOPE_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Antelope moves 2 spaces instead of 1 and it has 50% chance to escape before fight on a free adjacent field
@@ -22,6 +23,8 @@ public:
     void Action() override;
 
     void Collision(Organism *org, int x, int y, Position position) override;
+
+    std::string GetName();
 
     ~Antelope();
 };

@@ -113,6 +113,10 @@ void Antelope::newAnimal(Position *positionXY) {
     this->world->addOrganism(newAnimal);
 }
 
+std::string Antelope::GetName() {
+    return "Antelope";
+}
+
 Antelope::~Antelope() noexcept {
 
 }

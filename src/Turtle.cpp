@@ -109,6 +109,10 @@ void Turtle::newAnimal(Position *positionXY) {
     this->world->addOrganism(newAnimal);
 }
 
+std::string Turtle::GetName() {
+    return "Turtle";
+}
+
 Turtle::~Turtle() noexcept {
 
 }

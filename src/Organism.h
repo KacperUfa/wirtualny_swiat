@@ -3,6 +3,7 @@
 
 #include "World.h"
 #include "Position.h"
+#include <iostream>
 
 /*
 Base class for all organisms, it connects all of their base parameters and functions
@@ -57,6 +58,8 @@ public:
     virtual bool checkSpecies(Organism *organismTmp) = 0;
 
     virtual void Draw();
+
+    virtual std::string GetName()=0;
 
     virtual ~Organism();
 

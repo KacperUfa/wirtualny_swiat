@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_TURTLE_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Turtle is quite defensive animal, it is required more than 4 power to kill it, it bounces back the enemy if it is weaker.
@@ -23,6 +24,8 @@ public:
     void Action() override;
 
     void Collision(Organism *org, int x, int y, Position position) override;
+
+    std::string GetName();
 
     ~Turtle();
 };

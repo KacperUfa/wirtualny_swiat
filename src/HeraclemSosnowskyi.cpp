@@ -111,6 +111,10 @@ void HeraclemSosnowskyi::newPlant(Position *position) {
     this->world->addOrganism(newPlant);
 }
 
+std::string HeraclemSosnowskyi::GetName() {
+    return "HeraclemSosnowskyi";
+}
+
 HeraclemSosnowskyi::~HeraclemSosnowskyi() noexcept {
 
 }

@@ -24,6 +24,10 @@ void Sheep::newAnimal(Position *positionXY) {
     this->world->addOrganism(newAnimal);
 }
 
+std::string Sheep::GetName() {
+    return "Sheep";
+}
+
 Sheep::~Sheep() noexcept {
 
 }

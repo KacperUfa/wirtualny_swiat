@@ -24,6 +24,10 @@ void Wolf::SayName() {
     std::cout << "Wolf ";
 }
 
+std::string Wolf::GetName() {
+    return "Wolf";
+}
+
 Wolf::~Wolf() noexcept {
 
 }

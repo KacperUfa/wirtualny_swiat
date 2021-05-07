@@ -2,6 +2,7 @@
 #define WIRTUALNY_SWIAT_WOLF_H
 
 #include "Animal.h"
+#include <iostream>
 
 /*
 Wolf is the strongest animals but it doesn't have any special actions
@@ -20,6 +21,8 @@ public:
     void newAnimal(Position *positionXY) override;
 
     bool checkSpecies(Organism *organismTmp) override;
+
+    std::string GetName();
 
     ~Wolf();
 };

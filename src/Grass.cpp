@@ -24,6 +24,10 @@ void Grass::newPlant(Position *position) {
     this->world->addOrganism(newPlant);
 }
 
+std::string Grass::GetName() {
+    return "Grass";
+}
+
 Grass::~Grass() noexcept {
 
 }

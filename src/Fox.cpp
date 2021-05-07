@@ -66,6 +66,10 @@ void Fox::SayName() {
     std::cout<<"Fox ";
 }
 
+std::string Fox::GetName() {
+    return "Fox";
+}
+
 Fox::~Fox() noexcept {
 
 }

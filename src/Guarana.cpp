@@ -37,6 +37,10 @@ void Guarana::newPlant(Position *position) {
     this->world->addOrganism(newPlant);
 }
 
+std::string Guarana::GetName() {
+    return "Guarana";
+}
+
 Guarana::~Guarana() noexcept {
 
 }
