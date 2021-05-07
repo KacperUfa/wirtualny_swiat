@@ -10,6 +10,7 @@ World::World(int x, int y, std::vector <Organism*> organisms): mapSize(y,x){
     std::cout<<"Created new world\n";
 };
 
+//Drawing in console the entire world with all organisms in it
 void World::DrawWorld() {
     for(int i=0;i<this->mapSize.GetX();i++){
         for(int j=0;j<this->mapSize.GetY();j++){
@@ -25,6 +26,7 @@ void World::DrawWorld() {
     printf("\n");
 }
 
+//Making Action() of all the alive organisms
 void World::MakeTurn() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
         if((*iter)->GetState()){
@@ -39,10 +41,12 @@ void World::MakeTurn() {
     this->DrawWorld();
 }
 
+//function to add organism to temporary vector with organisms to delete from main list
 void World::addToKill(Organism *organismTmp) {
     this->organismToKill.push_back(organismTmp);
 }
 
+//adding all organisms to main vector
 void World::addOrganisms() {
     while (this->organismsTMP.size()>0){
         this->organisms.push_back(this->organismsTMP.back());
@@ -50,6 +54,7 @@ void World::addOrganisms() {
     }
 }
 
+//function setting the world pointer of the all organisms in it to this world
 void World::SetWorld() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
         (*iter)->SetWorld(this);
@@ -60,17 +65,20 @@ Position World::GetMapSize() {
     return this->mapSize;
 }
 
+//remove organism from main vector
 void World::removeOrganism(Organism* organismTmp) {
     auto newEnd = std::remove(this->organisms.begin(),this->organisms.end(), organismTmp);
     this->organisms.erase(newEnd, this->organisms.end());
 }
 
+//remove all organism from main vector
 void World::removeOrganisms() {
     for(auto iter = this->organismToKill.begin(); iter != this->organismToKill.end(); iter++){
         removeOrganism(*iter);
     }
 }
 
+//placing all organism from the main vector on the map
 void World::PlaceOrganisms() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
 
@@ -80,6 +88,7 @@ void World::PlaceOrganisms() {
     }
 }
 
+//function to add organism to temporary vector with organisms to add to the main list and to the map
 void World::addOrganism(Organism *organismTmp) {
     this->organismsTMP.push_back(organismTmp);
     int x=organismTmp->GetPositionX();
@@ -95,6 +104,7 @@ Organism* World::GetOrganism(int x, int y) {
     return this->map[y][x];
 }
 
+//sorting all of the listed organisms by their initiative
 void World::SortOrganisms() {
     std::vector <Organism*> organismsTMP;
     for(int i=7;i>=0;i--){
@@ -107,6 +117,7 @@ void World::SortOrganisms() {
     this->organisms=organismsTMP;
 }
 
+//erasing the existence of the organism from the map
 void World::Erase(Position position) {
     map[position.GetY()][position.GetX()]= nullptr;
 }

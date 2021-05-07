@@ -2,6 +2,10 @@
 #define WIRTUALNY_SWIAT_SHEEP_H
 #include "Animal.h"
 
+/*
+Sheep is average animal without any additional actions
+ */
+
 class Sheep: public Animal {
 public:
     Sheep(int x, int y, World *world);

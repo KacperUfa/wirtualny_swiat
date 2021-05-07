@@ -2,6 +2,11 @@
 #define WIRTUALNY_SWIAT_HERACLEMSOSNOWSKYI_H
 #include "Plant.h"
 
+/*
+Haraclem Sosnowskyi is the most dangerous plant, any animal that eats it dies,
+and in it's turn it kills every animal on adjacent field
+ */
+
 class HeraclemSosnowskyi: public Plant {
 public:
     HeraclemSosnowskyi(int x, int y, World *world);

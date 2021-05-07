@@ -3,6 +3,9 @@
 #include <vector>
 #include "Position.h"
 
+/*
+The most important class, it represents the whole universe and everything happens in it
+*/
 
 class Organism;
 

@@ -2,6 +2,10 @@
 #define WIRTUALNY_SWIAT_ANTELOPE_H
 #include "Animal.h"
 
+/*
+Antelope moves 2 spaces instead of 1 and it has 50% chance to escape before fight on a free adjacent field
+ */
+
 class Antelope: public Animal {
 public:
     Antelope(int x, int y, World *world);

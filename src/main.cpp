@@ -18,6 +18,12 @@
 #include "Antelope.h"
 #include "Human.h"
 
+/*
+Main file in which everything is initialised and the world is generated based on the dimensions that player gave
+ */
+
+
+//function for adding random animals and placing them on random positions on the map
 void addAnimals(int x, int y, int animalAmount, std::vector <Organism*> *organisms, std::vector<std::vector <Organism*>> *mapTMP){
     for(int i=0;i<animalAmount;i++){
         int tempX, tempY;
@@ -71,7 +77,7 @@ void addAnimals(int x, int y, int animalAmount, std::vector <Organism*> *organis
         }
     }
 }
-
+//function for adding random plants and placing them on random positions on the map
 void addPlants(int x, int y, int plantAmount, std::vector <Organism*> *organisms, std::vector<std::vector <Organism*>> *mapTMP){
     for(int i=0;i<plantAmount;i++){
         int tempX, tempY;
@@ -126,10 +132,13 @@ void addPlants(int x, int y, int plantAmount, std::vector <Organism*> *organisms
     }
 }
 
+/*
+function for estimating the amount of plants and animals, then it calls addPlants() and addAnimals() functions,
+and additionally it creates human and place him on the random free field
+ */
 std::vector <Organism*> generateOrganisms(int x, int y){
     int maxAmount = x*y;
     int plantAmount = maxAmount/5;
-    //plantAmount=0;
     int animalAmount = maxAmount/4;
     std::vector <Organism*> organisms;
     std::vector<std::vector <Organism*>> mapTMP(y,std::vector<Organism*>(x, nullptr));
@@ -155,7 +164,6 @@ std::vector <Organism*> generateOrganisms(int x, int y){
 int main(){
     srand(time(NULL));
     int x, y;
-
     std::cout<<"X dimension: "<<std::endl;
     std::cin>>x;
     std::cout<<"\nY dimension: "<<std::endl;
@@ -173,6 +181,7 @@ int main(){
     World *world1 = new World(x,y, organismsFunction);
     world1->DrawWorld();
     world1->SortOrganisms();
+
     while (true){
         std::cout<<"Virtual world, designed by Kacper Ufa 184501\n";
         int x;

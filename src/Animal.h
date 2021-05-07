@@ -3,6 +3,9 @@
 
 #include "Organism.h"
 
+/*
+Base class for all animals it implements basic collision for fighting and breeding, and basic action for moving
+ */
 
 class Animal: public Organism {
 private:

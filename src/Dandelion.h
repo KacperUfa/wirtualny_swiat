@@ -2,6 +2,10 @@
 #define WIRTUALNY_SWIAT_DANDELION_H
 #include "Plant.h"
 
+/*
+Dandelion is a basic plant, but in it's action it tries 3 times to reproduce itself
+ */
+
 class Dandelion : public Plant {
 public:
     Dandelion(int x, int y, World *world);

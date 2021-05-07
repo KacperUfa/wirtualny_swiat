@@ -2,6 +2,10 @@
 #define WIRTUALNY_SWIAT_WOLF_H
 #include "Animal.h"
 
+/*
+Wolf is the strongest animals but it doesn't have any special actions
+ */
+
 class Wolf: public Animal {
 private:
 

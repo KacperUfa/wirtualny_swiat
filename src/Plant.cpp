@@ -8,6 +8,7 @@ Plant::Plant(int power, int x, int y, World *world): Organism(power,0, x,y,world
 
 }
 
+//basic action for spreading seeds by plants
 void Plant::Action() {
 
     int spread=(rand()%10)+1;
@@ -56,6 +57,7 @@ bool Plant::checkSpecies(Organism *organismTmp) {
 
 void Plant::newPlant(Position *position) {}
 
+//basic collision in which it is eaten by animal
 void Plant::Collision(Organism* org, int x, int y, Position position) {
     this->SayName();
     std::cout<<"was eaten by ";
@@ -68,6 +70,7 @@ void Plant::Collision(Organism* org, int x, int y, Position position) {
     org->GetWorld()->Erase(position);
 }
 
+//estimating free adjacent field
 Position* Plant::Breed(Organism *organismTmp) {
     for(int i=-1; i<2;i++){
         int currentOrganismPosX = organismTmp->GetPositionX();

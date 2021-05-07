@@ -5,6 +5,9 @@
 #ifndef WIRTUALNY_SWIAT_POSITION_H
 #define WIRTUALNY_SWIAT_POSITION_H
 
+/*
+Base class used for position and dimensions
+ */
 
 class Position {
     int x;

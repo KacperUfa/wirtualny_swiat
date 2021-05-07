@@ -8,6 +8,8 @@ Animal::Animal(int power, int initiative, int x, int y, World *world):Organism(p
 
 }
 
+//basic animal action which is based on moving on the map
+
 void Animal::Action() {
         int x, y;
         int actualX=this->position.GetX();
@@ -55,12 +57,14 @@ void Animal::Move(Position *position) {
     this->position=*position;
 }
 
+//checking if the other organism is the same species as the organism it is called by
 bool Animal::checkSpecies(Organism* organismTmp) {
  return false;
 }
 
 void Animal::newAnimal(Position *position) {}
 
+//estimating free adjacent field
 Position* Animal::Breed(Organism *organismTmp) {
 
     for(int i=-1; i<2;i++){
@@ -82,10 +86,10 @@ Position* Animal::Breed(Organism *organismTmp) {
     return nullptr;
 }
 
+//basic collision which is ended with multiplying or fighting with other organism
 void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition ) {
     if(tmpOrg->checkSpecies(this)){
-
-        //kopulacja
+        //Breeding part
         Position* breedPosition=tmpOrg->Breed(this);
         if(breedPosition!= nullptr){
             newAnimal(breedPosition);
@@ -99,7 +103,7 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
 
     }
     else{
-        //walka
+        //fighting part
         if(tmpOrg->GetPower()>=this->power){
             tmpOrg->SayName();
             std::cout<<"killed ";
@@ -109,8 +113,6 @@ void Animal::Collision(Organism* tmpOrg, int x, int y, Position animalPosition )
             this->GetWorld()->addToKill(this);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
             tmpOrg->Move(x,y);
-           // tmpOrg->GetWorld()->Erase(this->GetPosition());
-
         }
         else{
             tmpOrg->SayName();

@@ -3,6 +3,9 @@
 
 #include "Organism.h"
 
+/*
+Basic class for all plants, it implements basic action for spreading seeds and collision in which it is eaten
+ */
 
 class Plant: public Organism {
 private:

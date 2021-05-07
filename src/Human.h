@@ -2,6 +2,11 @@
 #define WIRTUALNY_SWIAT_HUMAN_H
 #include "Animal.h"
 
+/*
+Human is controlled by player, who decides in which direction to move or to use special ability, which is increasing
+power of itself
+ */
+
 class Human: public Animal {
 private:
     int countSpecial;

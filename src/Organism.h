@@ -4,6 +4,10 @@
 #include "World.h"
 #include "Position.h"
 
+/*
+Base class for all organisms, it connects all of their base parameters and functions
+*/
+
 class Organism {
 protected:
     int power;

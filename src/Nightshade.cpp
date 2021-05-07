@@ -1,6 +1,10 @@
 #include "Nightshade.h"
 #include <iostream>
 
+/*
+Nightshade is a plant that kills the animal that consumed it
+ */
+
 Nightshade::Nightshade(int x, int y, World *world):Plant(99,x, y, world) {
     std::cout<<"Created new nightshade\n";
 }
