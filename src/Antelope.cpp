@@ -2,7 +2,7 @@
 #include <iostream>
 
 Antelope::Antelope(int x, int y, World *world): Animal(4,4,x,y,world) {
-
+    std::cout<<"Created new antelope\n";
 }
 
 void Antelope::Draw() {

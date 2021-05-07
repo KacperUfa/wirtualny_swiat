@@ -2,7 +2,7 @@
 #include "Fox.h"
 
 Fox::Fox(int x, int y, World *world) : Animal(3, 7, x, y, world) {
-
+    std::cout<<"Created new fox\n";
 }
 
 void Fox::Draw() {

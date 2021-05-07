@@ -7,7 +7,7 @@ World::World(int x, int y, std::vector <Organism*> organisms): mapSize(y,x){
     this->map=mapTMP;
     this->SetWorld();
     this->PlaceOrganisms();
-
+    std::cout<<"Created new world\n";
 };
 
 void World::DrawWorld() {

@@ -2,7 +2,7 @@
 #include <iostream>
 
 Grass::Grass(int x, int y, World *world):Plant(0,x, y, world) {
-
+    std::cout<<"Created new grass\n";
 }
 
 void Grass::Draw() {

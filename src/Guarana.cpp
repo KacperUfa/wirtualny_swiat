@@ -2,7 +2,7 @@
 #include <iostream>
 
 Guarana::Guarana(int x, int y, World *world):Plant(0,x, y, world) {
-
+    std::cout<<"Created new guarana\n";
 }
 
 void Guarana::Draw() {

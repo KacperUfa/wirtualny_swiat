@@ -2,7 +2,7 @@
 #include <iostream>
 
 Dandelion::Dandelion(int x, int y, World *world):Plant(0,x, y, world) {
-
+    std::cout<<"Created new dandelion\n";
 }
 
 void Dandelion::Draw() {

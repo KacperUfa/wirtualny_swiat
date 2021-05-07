@@ -2,7 +2,7 @@
 #include <iostream>
 
 HeraclemSosnowskyi::HeraclemSosnowskyi(int x, int y, World *world):Plant(10,x, y, world) {
-
+    std::cout<<"Created new Heraclem Sosnowskyi\n";
 }
 
 void HeraclemSosnowskyi::Draw() {

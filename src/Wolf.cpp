@@ -2,7 +2,7 @@
 #include <iostream>
 
 Wolf::Wolf(int x, int y, World *world): Animal(9,5,x,y,world) {
-
+    std::cout<<"Created new wolf\n";
 }
 
 void Wolf::Draw() {

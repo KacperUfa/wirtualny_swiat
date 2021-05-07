@@ -2,7 +2,7 @@
 #include <iostream>
 
 Turtle::Turtle(int x, int y, World *world): Animal(2,1,x,y,world) {
-
+    std::cout<<"Created new turtle\n";
 }
 
 void Turtle::Draw() {
