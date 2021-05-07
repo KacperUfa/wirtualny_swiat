@@ -14,13 +14,21 @@ class Position {
     int y;
 public:
     Position(int x, int y);
+
     void SetX(int x);
+
     void SetY(int y);
+
     int GetX();
+
     int GetY();
-    Position* GetPosition();
+
+    Position *GetPosition();
+
     void Move(int x, int y);
+
     void Erase();
+
     ~Position();
 };
 

@@ -5,8 +5,8 @@
 Nightshade is a plant that kills the animal that consumed it
  */
 
-Nightshade::Nightshade(int x, int y, World *world):Plant(99,x, y, world) {
-    std::cout<<"Created new nightshade\n";
+Nightshade::Nightshade(int x, int y, World *world) : Plant(99, x, y, world) {
+    std::cout << "Created new nightshade\n";
 }
 
 void Nightshade::Draw() {
@@ -14,22 +14,22 @@ void Nightshade::Draw() {
 }
 
 void Nightshade::SayName() {
-    std::cout<<"Nightshade ";
+    std::cout << "Nightshade ";
 }
 
 bool Nightshade::checkSpecies(Organism *organismTmp) {
-    return dynamic_cast<Nightshade*>(organismTmp) != nullptr;
+    return dynamic_cast<Nightshade *>(organismTmp) != nullptr;
 }
 
 void Nightshade::Collision(Organism *org, int x, int y, Position position) {
     this->SayName();
-    std::cout<<"was eaten by ";
+    std::cout << "was eaten by ";
     org->SayName();
-    std::cout<<"\n";
+    std::cout << "\n";
     this->SayName();
-    std::cout<<"killed ";
+    std::cout << "killed ";
     org->SayName();
-    std::cout<<"\n";
+    std::cout << "\n";
     this->GetWorld()->addToKill(this);
     org->GetWorld()->addToKill(org);
     this->Kill();
@@ -38,10 +38,10 @@ void Nightshade::Collision(Organism *org, int x, int y, Position position) {
     org->GetWorld()->Erase(org->GetPosition());
 }
 
-void Nightshade::newPlant(Position *position){
-    int x=position->GetX();
-    int y=position->GetY();
-    Nightshade *newPlant = new Nightshade(x,y, this->world);
+void Nightshade::newPlant(Position *position) {
+    int x = position->GetX();
+    int y = position->GetY();
+    Nightshade *newPlant = new Nightshade(x, y, this->world);
     this->world->addOrganism(newPlant);
 }
 

@@ -1,8 +1,8 @@
 #include "Wolf.h"
 #include <iostream>
 
-Wolf::Wolf(int x, int y, World *world): Animal(9,5,x,y,world) {
-    std::cout<<"Created new wolf\n";
+Wolf::Wolf(int x, int y, World *world) : Animal(9, 5, x, y, world) {
+    std::cout << "Created new wolf\n";
 }
 
 void Wolf::Draw() {
@@ -10,18 +10,18 @@ void Wolf::Draw() {
 }
 
 bool Wolf::checkSpecies(Organism *organismTmp) {
-    return dynamic_cast<Wolf*>(organismTmp) != nullptr;
+    return dynamic_cast<Wolf *>(organismTmp) != nullptr;
 }
 
-void Wolf::newAnimal(Position* positionXY) {
-    int x=positionXY->GetX();
-    int y=positionXY->GetY();
-    Wolf *newAnimal = new Wolf(x,y, this->world);
+void Wolf::newAnimal(Position *positionXY) {
+    int x = positionXY->GetX();
+    int y = positionXY->GetY();
+    Wolf *newAnimal = new Wolf(x, y, this->world);
     this->world->addOrganism(newAnimal);
 }
 
 void Wolf::SayName() {
-    std::cout<<"Wolf ";
+    std::cout << "Wolf ";
 }
 
 Wolf::~Wolf() noexcept {

@@ -2,7 +2,7 @@
 #include <iostream>
 
 Human::Human(int x, int y, World *world): Animal(5,4,x,y,world) {
-    std::cout<<"Created new human\n";
+    std::cout << "Created new human\n";
 }
 
 void Human::Draw() {

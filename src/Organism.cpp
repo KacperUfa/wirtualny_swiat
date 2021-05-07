@@ -1,7 +1,7 @@
 #include "Organism.h"
 
-Organism::Organism(int power, int initiative, int x, int y, World *world) :power(power), initiative(initiative),
-position(x, y), world(world), alive(true){
+Organism::Organism(int power, int initiative, int x, int y, World *world) : power(power), initiative(initiative),
+                                                                            position(x, y), world(world), alive(true) {
 
 }
 
@@ -24,8 +24,9 @@ int Organism::GetPositionY() {
 void Organism::SetPositionX(int x) {
     this->position.SetX(x);
 }
+
 void Organism::Kill() {
-    this->alive=false;
+    this->alive = false;
 }
 
 void Organism::SetPositionY(int y) {
@@ -33,7 +34,7 @@ void Organism::SetPositionY(int y) {
 }
 
 void Organism::Move(int x, int y) {
-    this->position.Move(x,y);
+    this->position.Move(x, y);
 }
 
 int Organism::GetPower() {
@@ -44,22 +45,23 @@ int Organism::GetInitiative() {
     return this->initiative;
 }
 
-World* Organism::GetWorld() {
+World *Organism::GetWorld() {
     return this->world;
 }
 
-void Organism::SetPower(int power){
-    this->power=power;
+void Organism::SetPower(int power) {
+    this->power = power;
 }
 
-void Organism::SetInitiative(int initiative){
-    this->initiative=initiative;
+void Organism::SetInitiative(int initiative) {
+    this->initiative = initiative;
 }
 
-void Organism::SetWorld(World* world){
-    this->world=world;
+void Organism::SetWorld(World *world) {
+    this->world = world;
 }
 
+//Draws a sign assigned to class
 void Organism::Draw() {
     printf(".");
 }

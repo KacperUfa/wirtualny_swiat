@@ -7,17 +7,24 @@
 Basic class for all plants, it implements basic action for spreading seeds and collision in which it is eaten
  */
 
-class Plant: public Organism {
+class Plant : public Organism {
 private:
 
 public:
     Plant(int power, int x, int y, World *world);
-    void Collision(Organism* org, int x, int y, Position position);
-    virtual void Draw ()=0;
+
+    void Collision(Organism *org, int x, int y, Position position);
+
+    virtual void Draw() = 0;
+
     void Action();
-    virtual void newPlant(Position* position);
-    virtual bool checkSpecies(Organism* organismTmp);
-    Position* Breed(Organism* organismTmp);
+
+    virtual void newPlant(Position *position);
+
+    virtual bool checkSpecies(Organism *organismTmp);
+
+    Position *Breed(Organism *organismTmp);
+
     ~Plant();
 };
 

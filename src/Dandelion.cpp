@@ -1,8 +1,8 @@
 #include "Dandelion.h"
 #include <iostream>
 
-Dandelion::Dandelion(int x, int y, World *world):Plant(0,x, y, world) {
-    std::cout<<"Created new dandelion\n";
+Dandelion::Dandelion(int x, int y, World *world) : Plant(0, x, y, world) {
+    std::cout << "Created new dandelion\n";
 }
 
 void Dandelion::Draw() {
@@ -10,11 +10,11 @@ void Dandelion::Draw() {
 }
 
 void Dandelion::Action() {
-    for(int i=0;i<3;i++){
+    for (int i = 0; i < 3; i++) {
 
 
-        int spread=(rand()%10)+1;
-        if(spread==1 || spread==2) {
+        int spread = (rand() % 10) + 1;
+        if (spread == 1 || spread == 2) {
 
             /*
                 Position plantPosition = this->position;
@@ -53,7 +53,7 @@ void Dandelion::Action() {
 
             if (tmpOrg == nullptr) {
                 this->SayName();
-                std::cout<<"propageted\n";
+                std::cout << "propageted\n";
                 Position *newPosition = new Position(actualX + x, actualY + y);
                 this->newPlant(newPosition);
             }
@@ -64,17 +64,17 @@ void Dandelion::Action() {
 }
 
 void Dandelion::SayName() {
-    std::cout<<"Dandelion ";
+    std::cout << "Dandelion ";
 }
 
 bool Dandelion::checkSpecies(Organism *organismTmp) {
-    return dynamic_cast<Dandelion*>(organismTmp) != nullptr;
+    return dynamic_cast<Dandelion *>(organismTmp) != nullptr;
 }
 
-void Dandelion::newPlant(Position *position){
-    int x=position->GetX();
-    int y=position->GetY();
-    Dandelion *newPlant = new Dandelion(x,y, this->world);
+void Dandelion::newPlant(Position *position) {
+    int x = position->GetX();
+    int y = position->GetY();
+    Dandelion *newPlant = new Dandelion(x, y, this->world);
     this->world->addOrganism(newPlant);
 }
 

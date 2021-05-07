@@ -1,8 +1,8 @@
 #include "Turtle.h"
 #include <iostream>
 
-Turtle::Turtle(int x, int y, World *world): Animal(2,1,x,y,world) {
-    std::cout<<"Created new turtle\n";
+Turtle::Turtle(int x, int y, World *world) : Animal(2, 1, x, y, world) {
+    std::cout << "Created new turtle\n";
 }
 
 void Turtle::Draw() {
@@ -10,93 +10,85 @@ void Turtle::Draw() {
 }
 
 void Turtle::Action() {
-    int randomise=(rand()%4)+1;
-    if(randomise==1){
+    int randomise = (rand() % 4) + 1;
+    if (randomise == 1) {
         int x, y;
-        int actualX=this->position.GetX();
-        int actualY=this->position.GetY();
+        int actualX = this->position.GetX();
+        int actualY = this->position.GetY();
         Position animalPosition = this->position;
-        Position worldMap=this->world->GetMapSize();
+        Position worldMap = this->world->GetMapSize();
 
-        do{
-            x=(rand()%3)-1;
-            y=(rand()%3)-1;
+        do {
+            x = (rand() % 3) - 1;
+            y = (rand() % 3) - 1;
 
-        }while(x==0 && y ==0);
+        } while (x == 0 && y == 0);
 
-        if(actualX==0 && x<0){
-            x=1;
+        if (actualX == 0 && x < 0) {
+            x = 1;
+        } else if (actualX == worldMap.GetY() - 1 && x > 0) {
+            x = -1;
         }
-        else if(actualX== worldMap.GetY()-1 && x>0){
-            x=-1;
-        }
-        if(actualY==0 && y<0){
-            y=1;
-        }
-        else if(actualY== worldMap.GetX()-1 && y>0){
-            y=-1;
+        if (actualY == 0 && y < 0) {
+            y = 1;
+        } else if (actualY == worldMap.GetX() - 1 && y > 0) {
+            y = -1;
         }
 
-        Organism* tmpOrg=this->world->GetOrganism(actualX+x,actualY+y);
+        Organism *tmpOrg = this->world->GetOrganism(actualX + x, actualY + y);
 
-        if(tmpOrg== nullptr){
-            this->position.Move(x,y);
+        if (tmpOrg == nullptr) {
+            this->position.Move(x, y);
             this->world->Erase(animalPosition);
             this->SayName();
-            std::cout<<"moved\n";
+            std::cout << "moved\n";
+        } else {
+            tmpOrg->Collision(this, x, y, animalPosition);
         }
-        else{
-            tmpOrg->Collision(this, x,y,animalPosition);
-        }
-    }
-    else{
+    } else {
         this->SayName();
-        std::cout<<"did not move\n";
+        std::cout << "did not move\n";
     }
 }
 
 void Turtle::SayName() {
-    std::cout<<"Turtle ";
+    std::cout << "Turtle ";
 }
 
 void Turtle::Collision(Organism *tmpOrg, int x, int y, Position position) {
-    if(tmpOrg->checkSpecies(this)){
+    if (tmpOrg->checkSpecies(this)) {
 
         //kopiulacja
-        Position* breedPosition=tmpOrg->Breed(this);
-        if(breedPosition!= nullptr){
+        Position *breedPosition = tmpOrg->Breed(this);
+        if (breedPosition != nullptr) {
             newAnimal(breedPosition);
             this->SayName();
-            std::cout<<"multiplied\n";
-        }
-        else{
+            std::cout << "multiplied\n";
+        } else {
             this->SayName();
-            std::cout<<"tried to multiply\n";
+            std::cout << "tried to multiply\n";
         }
-    }
-    else{
+    } else {
         //walka
-        if(tmpOrg->GetPower()<5){
+        if (tmpOrg->GetPower() < 5) {
             this->SayName();
-            std::cout<<"defended itself\n";
-        }
-        else if(tmpOrg->GetPower()>=this->power){
+            std::cout << "defended itself\n";
+        } else if (tmpOrg->GetPower() >= this->power) {
             tmpOrg->SayName();
-            std::cout<<"killed ";
+            std::cout << "killed ";
             this->SayName();
-            std::cout<<"\n";
+            std::cout << "\n";
             this->Kill();
             this->GetWorld()->addToKill(this);
-            tmpOrg->Move(x,y);
+            tmpOrg->Move(x, y);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
             tmpOrg->GetWorld()->Erase(position);
 
-        }
-        else{
+        } else {
             tmpOrg->SayName();
-            std::cout<<"killed itself by attacking ";
+            std::cout << "killed itself by attacking ";
             this->SayName();
-            std::cout<<"\n";
+            std::cout << "\n";
             tmpOrg->GetWorld()->addToKill(tmpOrg);
             tmpOrg->Kill();
             tmpOrg->GetWorld()->Erase(position);
@@ -107,13 +99,13 @@ void Turtle::Collision(Organism *tmpOrg, int x, int y, Position position) {
 }
 
 bool Turtle::checkSpecies(Organism *organismTmp) {
-    return dynamic_cast<Turtle*>(organismTmp) != nullptr;
+    return dynamic_cast<Turtle *>(organismTmp) != nullptr;
 }
 
-void Turtle::newAnimal(Position* positionXY) {
-    int x=positionXY->GetX();
-    int y=positionXY->GetY();
-    Turtle *newAnimal = new Turtle(x,y, this->world);
+void Turtle::newAnimal(Position *positionXY) {
+    int x = positionXY->GetX();
+    int y = positionXY->GetY();
+    Turtle *newAnimal = new Turtle(x, y, this->world);
     this->world->addOrganism(newAnimal);
 }
 

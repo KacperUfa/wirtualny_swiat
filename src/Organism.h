@@ -17,26 +17,47 @@ protected:
     World *world;
 public:
     Organism(int power, int initiative, int x, int y, World *world);
+
     int GetPower();
+
     int GetInitiative();
-    World* GetWorld();
+
+    World *GetWorld();
+
     void SetPower(int power);
+
     void SetInitiative(int initiative);
+
     void Kill();
-    void SetWorld(World* world);
+
+    void SetWorld(World *world);
+
     int GetPositionX();
+
     int GetPositionY();
+
     bool GetState();
+
     Position GetPosition();
+
     void SetPositionX(int x);
+
     void SetPositionY(int y);
-    void Move(int x,int y);
-    virtual void SayName()=0;
-    virtual void Action()=0;
-    virtual Position* Breed(Organism* organismTmp)=0;
-    virtual void Collision(Organism* org, int x, int y, Position position)=0;
-    virtual bool checkSpecies(Organism* organismTmp)=0;
+
+    void Move(int x, int y);
+
+    virtual void SayName() = 0;
+
+    virtual void Action() = 0;
+
+    virtual Position *Breed(Organism *organismTmp) = 0;
+
+    virtual void Collision(Organism *org, int x, int y, Position position) = 0;
+
+    virtual bool checkSpecies(Organism *organismTmp) = 0;
+
     virtual void Draw();
+
     virtual ~Organism();
 
 };
