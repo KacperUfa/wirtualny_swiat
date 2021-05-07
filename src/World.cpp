@@ -98,6 +98,18 @@ Organism* World::GetOrganism(int x, int y) {
     return this->map[y][x];
 }
 
+void World::SortOrganisms() {
+    std::vector <Organism*> organismsTMP;
+    for(int i=7;i>=0;i--){
+        for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
+            if((*iter)->GetInitiative()==i){
+                organismsTMP.push_back((*iter));
+            }
+        }
+    }
+    this->organisms=organismsTMP;
+}
+
 void World::Erase(Position position) {
     map[position.GetY()][position.GetX()]= nullptr;
 }

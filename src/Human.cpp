@@ -78,7 +78,6 @@ void Human::Action() {
             }
         }
 
-
     if(actualX==0 && x<0){
         x=0;
     }
@@ -117,10 +116,7 @@ void Human::Collision(Organism *tmpOrg, int x, int y, Position position) {
     }
     else{
         //walka
-        if(tmpOrg->GetPower()<5){
-            std::cout<<"naura frajerze\n";
-        }
-        else if(tmpOrg->GetPower()>=this->power){
+        if(tmpOrg->GetPower()>=this->power){
             this->Kill();
             this->GetWorld()->addToKill(this);
             tmpOrg->Move(x,y);

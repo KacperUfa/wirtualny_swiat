@@ -26,6 +26,7 @@ public:
     void removeOrganisms();
     void addOrganisms();
     void remOrganisms();
+    void SortOrganisms();
     std::vector<std::vector <Organism*>> GetMap();
     Organism* GetOrganism(int x, int y);
     Position GetMapSize();
