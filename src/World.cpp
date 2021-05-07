@@ -27,7 +27,10 @@ void World::DrawWorld() {
 
 void World::MakeTurn() {
     for(auto iter = this->organisms.begin(); iter != this->organisms.end(); iter++){
+        //std::cout<<"44\n";
+
         if((*iter)->GetState()){
+            std::cout<<(*iter)->GetPositionX()<<" "<<(*iter)->GetPositionY()<<"\n";
             (*iter)->Action();
             if((*iter)->GetState()){
                 int x=(*iter)->GetPositionX();
@@ -36,7 +39,7 @@ void World::MakeTurn() {
             }
 
         }
-
+        //std::cout<<(*iter)->GetPower()<<" "<<(*iter)->GetInitiative()<<"\n";
     }
     this->DrawWorld();
 }

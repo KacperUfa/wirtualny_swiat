@@ -129,6 +129,7 @@ void addPlants(int x, int y, int plantAmount, std::vector <Organism*> *organisms
 std::vector <Organism*> generateOrganisms(int x, int y){
     int maxAmount = x*y;
     int plantAmount = maxAmount/5;
+    //plantAmount=0;
     int animalAmount = maxAmount/4;
     std::vector <Organism*> organisms;
     std::vector<std::vector <Organism*>> mapTMP(y,std::vector<Organism*>(x, nullptr));
@@ -154,9 +155,8 @@ std::vector <Organism*> generateOrganisms(int x, int y){
 int main(){
     srand(time(NULL));
     int x, y;
-    x=5;
-    y=5;
 
+    /*
     std::cout<<"X dimension: "<<std::endl;
     std::cin>>x;
     std::cout<<"\nY dimension: "<<std::endl;
@@ -169,6 +169,9 @@ int main(){
         std::cout<<"It is not funny, bye\n";
         return 0;
     }
+    */
+    x=15;
+    y=5;
 
 
     std::vector <Organism*> organisms;
@@ -229,8 +232,9 @@ int main(){
 
     World *world1 = new World(x,y, organismsFunction);
     world1->DrawWorld();
-
+    world1->SortOrganisms();
     while (true){
+        std::cout<<"Wirtual world, projected by Kacper Ufa 184501\n";
         int x;
         std::cout<<"1. Next Move\n";
         std::cout<<"2. Quit\n";

@@ -28,13 +28,13 @@ void Antelope::Action() {
         if((actualX==0 || actualX==1) && x<0){
             x=2;
         }
-        else if((actualX== worldMap.GetX()-1 || actualX== worldMap.GetX()-2) && x>0){
+        else if((actualX== worldMap.GetY()-1 || actualX== worldMap.GetY()-2) && x>0){
             x=-2;
         }
         if((actualY==0 || actualY==1) && y<0){
             y=2;
         }
-        else if((actualY== worldMap.GetY()-1 || actualY== worldMap.GetY()-2)&& y>0){
+        else if((actualY== worldMap.GetX()-1 || actualY== worldMap.GetX()-2)&& y>0){
             y=-2;
         }
 
