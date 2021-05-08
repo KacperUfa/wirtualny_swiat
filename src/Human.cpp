@@ -10,6 +10,7 @@ void Human::Draw() {
     printf("O");
 }
 
+
 void Human::SetActivate(bool x) {
     this->canActivate = x;
 }
@@ -183,5 +184,6 @@ int Human::GetSpecial() {
 }
 
 Human::~Human() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

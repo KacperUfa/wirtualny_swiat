@@ -114,5 +114,6 @@ std::string Turtle::GetName() {
 }
 
 Turtle::~Turtle() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

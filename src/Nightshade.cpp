@@ -50,5 +50,6 @@ std::string Nightshade::GetName() {
 }
 
 Nightshade::~Nightshade() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

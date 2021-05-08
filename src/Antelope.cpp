@@ -118,5 +118,6 @@ std::string Antelope::GetName() {
 }
 
 Antelope::~Antelope() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

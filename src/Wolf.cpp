@@ -29,5 +29,6 @@ std::string Wolf::GetName() {
 }
 
 Wolf::~Wolf() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

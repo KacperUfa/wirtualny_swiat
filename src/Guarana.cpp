@@ -42,5 +42,6 @@ std::string Guarana::GetName() {
 }
 
 Guarana::~Guarana() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

@@ -29,5 +29,6 @@ std::string Sheep::GetName() {
 }
 
 Sheep::~Sheep() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

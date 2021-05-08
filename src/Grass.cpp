@@ -29,5 +29,6 @@ std::string Grass::GetName() {
 }
 
 Grass::~Grass() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

@@ -116,5 +116,6 @@ std::string HeraclemSosnowskyi::GetName() {
 }
 
 HeraclemSosnowskyi::~HeraclemSosnowskyi() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

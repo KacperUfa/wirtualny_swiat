@@ -1,7 +1,3 @@
-//
-// Created by kacpe on 29.04.2021.
-//
-
 #ifndef WIRTUALNY_SWIAT_POSITION_H
 #define WIRTUALNY_SWIAT_POSITION_H
 
@@ -10,6 +6,7 @@ Base class used for position and dimensions
  */
 
 class Position {
+private:
     int x;
     int y;
 public:

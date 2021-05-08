@@ -83,5 +83,6 @@ std::string Dandelion::GetName() {
 }
 
 Dandelion::~Dandelion() noexcept {
-
+    this->SayName();
+    std::cout << "is dead\n";
 }

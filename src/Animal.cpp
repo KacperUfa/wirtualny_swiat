@@ -62,6 +62,7 @@ bool Animal::checkSpecies(Organism* organismTmp) {
  return false;
 }
 
+//making new object of the same class
 void Animal::newAnimal(Position *position) {}
 
 //estimating free adjacent field

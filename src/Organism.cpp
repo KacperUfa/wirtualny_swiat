@@ -1,4 +1,5 @@
 #include "Organism.h"
+#include <iostream>
 
 Organism::Organism(int power, int initiative, int x, int y, World *world) : power(power), initiative(initiative),
                                                                             position(x, y), world(world), alive(true) {
@@ -13,6 +14,7 @@ Position Organism::GetPosition() {
     return this->position;
 }
 
+//checks if the organism is alive, so it can make action
 bool Organism::GetState() {
     return this->alive;
 }
@@ -33,6 +35,7 @@ void Organism::SetPositionY(int y) {
     this->position.SetX(y);
 }
 
+//changes the coordinates of organism
 void Organism::Move(int x, int y) {
     this->position.Move(x, y);
 }
