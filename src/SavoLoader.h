@@ -1,10 +1,5 @@
-//
-// Created by matih on 07.05.2021.
-//
-
 #ifndef WIRTUALNY_SWIAT_SAVOLOADER_H
 #define WIRTUALNY_SWIAT_SAVOLOADER_H
-
 
 #include <cstdio>
 #include "World.h"
@@ -22,7 +17,7 @@ public:
 
     bool saveWorld(World* world);
 
-    bool loadWorld();
+    World* loadWorld();
 
     virtual ~SavoLoader();
 

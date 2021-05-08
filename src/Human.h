@@ -26,6 +26,14 @@ public:
 
     void Action() override;
 
+    int GetSpecial();
+
+    void SetSpecial(int x);
+
+    void SetActivate(bool x);
+
+    std::string GetActivate();
+
     void Collision(Organism *org, int x, int y, Position position) override;
 
     std::string GetName();

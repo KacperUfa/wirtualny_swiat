@@ -159,25 +159,42 @@ std::vector<Organism *> generateOrganisms(int x, int y) {
 
 int main() {
     srand(time(NULL));
-    int x, y;
-    std::cout << "X dimension: " << std::endl;
-    std::cin >> x;
-    std::cout << "\nY dimension: " << std::endl;
-    std::cin >> y;
-    std::cout << "\n";
-    if (x > 0 && y > 0) {
-        Position *worldDimensions = new Position(x, y);
-    } else {
-        std::cout << "It is not funny, bye\n";
+    int n;
+    SavoLoader* save = new SavoLoader();
+    World *world1;
+    std::cout << "Hello! " << std::endl;
+    std::cout << "1. Make new world" << std::endl;
+    std::cout << "2. Load last saved world " << std::endl;
+    std::cin>>n;
+    if(n==1){
+        int x, y;
+        std::cout << "X dimension: " << std::endl;
+        std::cin >> x;
+        std::cout << "\nY dimension: " << std::endl;
+        std::cin >> y;
+        std::cout << "\n";
+        if (x > 0 && y > 0) {
+            Position *worldDimensions = new Position(x, y);
+        } else {
+            std::cout << "It is not funny, bye\n";
+            return 0;
+        }
+        system("cls");
+        std::vector<Organism *> organismsFunction = generateOrganisms(x, y);
+        world1 = new World(x, y, organismsFunction);
+    }
+    else if(n==2){
+        world1 = save->loadWorld();
+    }
+    else{
         return 0;
     }
 
-    std::vector<Organism *> organismsFunction = generateOrganisms(x, y);
-    World *world1 = new World(x, y, organismsFunction);
     world1->DrawWorld();
     world1->SortOrganisms();
 
     while (true) {
+        //system("cls");
         std::cout << "Virtual world, designed by Kacper Ufa 184501\n";
         char x;
         std::cout << "1. Next Move\n";
@@ -185,12 +202,12 @@ int main() {
         std::cout << "3. Quit\n";
         std::cin >> x;
         if (x == '1') {
+            system("cls");
             world1->MakeTurn();
             world1->addOrganisms();
             world1->removeOrganisms();
             world1->SortOrganisms();
         } else if (x == '2') {
-            SavoLoader* save = new SavoLoader();
             save->saveWorld(world1);
             break;
         } else if (x == '3') break;

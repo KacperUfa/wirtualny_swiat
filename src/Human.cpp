@@ -2,11 +2,20 @@
 #include <iostream>
 
 Human::Human(int x, int y, World *world): Animal(5,4,x,y,world) {
+    this->countSpecial=0;
     std::cout << "Created new human\n";
 }
 
 void Human::Draw() {
     printf("O");
+}
+
+void Human::SetActivate(bool x) {
+    this->canActivate=x;
+}
+
+void Human::SetSpecial(int x) {
+    this->countSpecial=x;
 }
 
 void Human::Action() {
@@ -30,7 +39,7 @@ void Human::Action() {
         bool haveNotChosen=true;
 
         while (haveNotChosen){
-
+            std::cout<<"\n";
             std::cout<<"       w\n";
             std::cout<<"       ^\n";
             std::cout<<"       |\n";
@@ -168,6 +177,19 @@ void Human::newAnimal(Position* positionXY) {
 
 std::string Human::GetName() {
     return "Human";
+}
+
+std::string Human::GetActivate() {
+    if(this->canActivate){
+        return "true";
+    }
+    else{
+        return "false";
+    }
+}
+
+int Human::GetSpecial() {
+    return this->countSpecial;
 }
 
 Human::~Human() noexcept {

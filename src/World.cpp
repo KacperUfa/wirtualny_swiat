@@ -16,6 +16,7 @@ const std::vector<Organism *> &World::getOrganisms() const {
 
 //Drawing in console the entire world with all organisms in it
 void World::DrawWorld() {
+    printf("\n");
     for (int i = 0; i < this->mapSize.GetX(); i++) {
         for (int j = 0; j < this->mapSize.GetY(); j++) {
             if (this->map[i][j] != nullptr) {

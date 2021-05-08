@@ -6,7 +6,7 @@ Grass::Grass(int x, int y, World *world) : Plant(0, x, y, world) {
 }
 
 void Grass::Draw() {
-    printf("G");
+    printf("M");
 }
 
 void Grass::SayName() {
