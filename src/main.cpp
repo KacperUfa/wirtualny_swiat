@@ -199,8 +199,9 @@ int main() {
         std::cout << "2. Save game\n";
         std::cout << "3. Quit\n";
         std::cin >> x;
+        //system("cls");
         if (x == '1') {
-            system("cls");
+            //system("cls");
             world1->MakeTurn();
             world1->addOrganisms();
             world1->removeOrganisms();

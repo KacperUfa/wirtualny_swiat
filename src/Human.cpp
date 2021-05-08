@@ -140,8 +140,9 @@ void Human::Collision(Organism *tmpOrg, int x, int y, Position position) {
             std::cout << "\n";
             this->Kill();
             this->GetWorld()->addToKill(this);
-            tmpOrg->Move(x, y);
             tmpOrg->GetWorld()->Erase(this->GetPosition());
+            tmpOrg->Move(x, y);
+            //tmpOrg->GetWorld()->Erase(this->GetPosition());
             tmpOrg->GetWorld()->Erase(position);
 
         } else {
@@ -183,7 +184,7 @@ int Human::GetSpecial() {
     return this->countSpecial;
 }
 
-Human::~Human() noexcept {
+Human::~Human() {
     this->SayName();
     std::cout << "is dead\n";
 }

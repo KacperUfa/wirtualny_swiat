@@ -81,6 +81,9 @@ void World::removeOrganisms() {
     for (auto iter = this->organismToKill.begin(); iter != this->organismToKill.end(); iter++) {
         removeOrganism(*iter);
     }
+    while (this->organismToKill.size() > 0) {
+        this->organismToKill.pop_back();
+    }
 }
 
 //placing all organism from the main vector on the map
