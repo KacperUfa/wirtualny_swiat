@@ -201,7 +201,7 @@ int main() {
         std::cin >> x;
         //system("cls");
         if (x == '1') {
-            //system("cls");
+            system("cls");
             world1->MakeTurn();
             world1->addOrganisms();
             world1->removeOrganisms();
