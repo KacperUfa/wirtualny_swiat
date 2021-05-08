@@ -179,21 +179,24 @@ int main() {
 
     while (true) {
         std::cout << "Virtual world, designed by Kacper Ufa 184501\n";
-        int x;
+        char x;
         std::cout << "1. Next Move\n";
         std::cout << "2. Save game\n";
         std::cout << "3. Quit\n";
         std::cin >> x;
-        if (x == 1) {
+        if (x == '1') {
             world1->MakeTurn();
             world1->addOrganisms();
             world1->removeOrganisms();
             world1->SortOrganisms();
-        } else if (x == 2) {
+        } else if (x == '2') {
             SavoLoader* save = new SavoLoader();
             save->saveWorld(world1);
             break;
-        } else if (x == 3) break;
+        } else if (x == '3') break;
+        else{
+            std::cout<<"Something went wrong, try again\n";
+        }
     }
     return 0;
 }
