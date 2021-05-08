@@ -4,6 +4,10 @@
 #include <cstdio>
 #include "World.h"
 
+/*
+Class for saving into and loading world from text file
+ */
+
 class SavoLoader {
 
     FILE *filepointer;

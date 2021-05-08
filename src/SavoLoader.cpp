@@ -24,6 +24,7 @@ void SavoLoader::setFilepointer(FILE *filepointer) {
     SavoLoader::filepointer = filepointer;
 }
 
+//function for saving world into text file
 bool SavoLoader::saveWorld(World *world) {
     std::ofstream file;
     this->filepointer = fopen("../savegame.txt", "wb+");
@@ -51,6 +52,7 @@ bool SavoLoader::saveWorld(World *world) {
     return true;
 }
 
+//function for returning object of world class based on information from text file
 World *SavoLoader::loadWorld() {
     std::vector<Organism *> organisms;
     std::ifstream file;
