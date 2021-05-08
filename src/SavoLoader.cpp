@@ -34,14 +34,15 @@ bool SavoLoader::saveWorld(World *world) {
     std::vector<Organism *> organisms = world->getOrganisms();
     file << (char) x + 0 << " " << (char) y + 0 << std::endl;
     for (auto iter = organisms.begin(); iter != organisms.end(); iter++) {
-        if(dynamic_cast<Human*>((*iter))){
-            Human* humanTmp = dynamic_cast<Human*>((*iter));
-            file << (*iter)->GetName() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0 << " "
-                 << (*iter)->GetPower() + 0 <<  " " << humanTmp->GetActivate() <<" " <<
-                 humanTmp->GetSpecial() + 0 <<std::endl;
-        }
-        else{
-            file << (*iter)->GetName() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0 << " "
+        if (dynamic_cast<Human *>((*iter))) {
+            Human *humanTmp = dynamic_cast<Human *>((*iter));
+            file << (*iter)->GetName() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0
+                 << " "
+                 << (*iter)->GetPower() + 0 << " " << humanTmp->GetActivate() << " " <<
+                 humanTmp->GetSpecial() + 0 << std::endl;
+        } else {
+            file << (*iter)->GetName() << " " << (*iter)->GetPositionX() + 0 << " " << (*iter)->GetPositionY() + 0
+                 << " "
                  << (*iter)->GetPower() + 0 << std::endl;
         }
 
@@ -91,11 +92,10 @@ World *SavoLoader::loadWorld() {
                 int counter;
                 file >> active;
                 file >> counter;
-                Human* newHuman = new Human(xTmp, yTmp, nullptr);
-                if(active == "true"){
+                Human *newHuman = new Human(xTmp, yTmp, nullptr);
+                if (active == "true") {
                     newHuman->SetActivate(true);
-                }
-                else{
+                } else {
                     newHuman->SetActivate(false);
                 }
                 newHuman->SetSpecial(counter);
@@ -114,7 +114,7 @@ World *SavoLoader::loadWorld() {
                 organism = new Wolf(xTmp, yTmp, nullptr);
                 organism->SetPower(powerTmp);
             }
-            if(className != "Human"){
+            if (className != "Human") {
                 organisms.push_back(organism);
             }
 

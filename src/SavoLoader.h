@@ -15,9 +15,9 @@ public:
 
     void setFilepointer(FILE *filepointer);
 
-    bool saveWorld(World* world);
+    bool saveWorld(World *world);
 
-    World* loadWorld();
+    World *loadWorld();
 
     virtual ~SavoLoader();
 

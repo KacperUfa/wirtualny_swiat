@@ -160,13 +160,13 @@ std::vector<Organism *> generateOrganisms(int x, int y) {
 int main() {
     srand(time(NULL));
     int n;
-    SavoLoader* save = new SavoLoader();
+    SavoLoader *save = new SavoLoader();
     World *world1;
     std::cout << "Hello! " << std::endl;
     std::cout << "1. Make new world" << std::endl;
     std::cout << "2. Load last saved world " << std::endl;
-    std::cin>>n;
-    if(n==1){
+    std::cin >> n;
+    if (n == 1) {
         int x, y;
         std::cout << "X dimension: " << std::endl;
         std::cin >> x;
@@ -182,11 +182,9 @@ int main() {
         system("cls");
         std::vector<Organism *> organismsFunction = generateOrganisms(x, y);
         world1 = new World(x, y, organismsFunction);
-    }
-    else if(n==2){
+    } else if (n == 2) {
         world1 = save->loadWorld();
-    }
-    else{
+    } else {
         return 0;
     }
 
@@ -211,8 +209,8 @@ int main() {
             save->saveWorld(world1);
             break;
         } else if (x == '3') break;
-        else{
-            std::cout<<"Something went wrong, try again\n";
+        else {
+            std::cout << "Something went wrong, try again\n";
         }
     }
     return 0;
